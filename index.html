@@ -1,0 +1,3410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0F0A1A" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#F8F4FB" media="(prefers-color-scheme: light)" />
+<meta name="description" content="A private sacred space for shadow work and inner healing." />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" type="image/svg+xml" href="icon.svg" />
+<link rel="apple-touch-icon" href="icon.svg" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Lumina" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="application-name" content="Lumina" />
+<title>Lumina — Bring light to the shadow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0F0A1A;
+    --surface: #1A1030;
+    --card: #221540;
+    --card-hover: #2D1B55;
+    --primary: #7C5CBF;
+    --primary-light: #9B7DD4;
+    --primary-pale: #C4A8E8;
+    --gold: #E8C4A0;
+    --gold-light: #F5DFC0;
+    --teal: #5DCAA5;
+    --text: #EDE8F5;
+    --text-secondary: #A89BC2;
+    --text-muted: #6B5F85;
+    --border: rgba(124, 92, 191, 0.2);
+    --border-hover: rgba(124, 92, 191, 0.5);
+    --danger: #E8578A;
+    --success: #5DCAA5;
+    --shadow-card: 0 4px 24px rgba(124, 92, 191, 0.12);
+    --shadow-btn: 0 4px 16px rgba(124, 92, 191, 0.35);
+    --gold-glow: 0 0 20px rgba(232, 196, 160, 0.15);
+    --active-glow: 0 0 0 2px rgba(124, 92, 191, 0.4);
+    --mood-1: #4A3860;
+    --mood-2: #5A4070;
+    --mood-3: #6B5490;
+    --mood-4: #7C5CBF;
+    --mood-5: #9B7DD4;
+    --mood-6: #C4A8E8;
+    --mood-7: #E8C4A0;
+    --cat-shadow: #7C5CBF;
+    --cat-ic: #C4A8E8;
+    --cat-sl: #E8C4A0;
+    --cat-ep: #5DCAA5;
+    --cat-rl: #9B7DD4;
+    --cat-rp: #E8578A;
+    --fs-body: 15px;
+    --star-color: #ffffff;
+    --nav-bg: rgba(26, 16, 48, 0.92);
+    --overlay-bg: rgba(15, 10, 26, 0.95);
+    --celebration-bg: rgba(15, 10, 26, 0.97);
+  }
+
+  body.theme-light {
+    --bg: #F8F4FB;
+    --surface: #FFFFFF;
+    --card: #FFFFFF;
+    --card-hover: #F2EAF9;
+    --primary: #7C5CBF;
+    --primary-light: #6B4FA8;
+    --primary-pale: #5A4090;
+    --gold: #B8895D;
+    --gold-light: #D4A878;
+    --teal: #3F9F7E;
+    --text: #2D1B55;
+    --text-secondary: #6B5F85;
+    --text-muted: #9B92B0;
+    --border: rgba(124, 92, 191, 0.18);
+    --border-hover: rgba(124, 92, 191, 0.4);
+    --danger: #D14573;
+    --success: #3F9F7E;
+    --shadow-card: 0 4px 24px rgba(124, 92, 191, 0.08);
+    --shadow-btn: 0 4px 16px rgba(124, 92, 191, 0.25);
+    --gold-glow: 0 0 20px rgba(184, 137, 93, 0.18);
+    --active-glow: 0 0 0 2px rgba(124, 92, 191, 0.3);
+    --star-color: #C4A8E8;
+    --nav-bg: rgba(255, 255, 255, 0.92);
+    --overlay-bg: rgba(248, 244, 251, 0.96);
+    --celebration-bg: rgba(248, 244, 251, 0.97);
+  }
+  body.theme-light .star { opacity: 0.18 !important; }
+  body.theme-light .wordmark { text-shadow: 0 1px 2px rgba(184, 137, 93, 0.15); }
+  body.theme-light .pill-shadow { background: rgba(124, 92, 191, 0.12); }
+  body.theme-light .pill-ic { background: rgba(196, 168, 232, 0.18); color: #6B4FA0; }
+  body.theme-light .pill-sl { background: rgba(184, 137, 93, 0.15); color: #8B6543; }
+  body.theme-light .pill-ep { background: rgba(63, 159, 126, 0.15); color: #2D7A5E; }
+  body.theme-light .pill-rl { background: rgba(155, 125, 212, 0.15); color: #6B4FA8; }
+  body.theme-light .pill-rp { background: rgba(209, 69, 115, 0.12); color: var(--danger); }
+  body.theme-light .btn-gold { color: #FFFFFF; background: linear-gradient(135deg, #B8895D, #D4A878); }
+  body.theme-light .affirmation-card { background: linear-gradient(135deg, rgba(124, 92, 191, 0.06), rgba(184, 137, 93, 0.04)); }
+  body.theme-light .affirmation-text { color: #8B6543; }
+  body.theme-light .candle-day { color: #8B6543; }
+
+  *,*::before,*::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+  body.font-small { --fs-body: 14px; }
+  body.font-medium { --fs-body: 15px; }
+  body.font-large { --fs-body: 17px; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+  }
+  h1 { font-size: 36px; }
+  h2 { font-size: 26px; }
+  h3 { font-size: 18px; }
+  p { margin: 0; }
+  button, input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+  }
+  button { background: none; border: none; cursor: pointer; padding: 0; }
+  a { color: var(--primary-light); text-decoration: none; }
+
+  /* Star field background */
+  .starfield {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    background: var(--star-color);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: twinkle var(--dur, 4s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.45; }
+  }
+
+  /* App container */
+  .app {
+    position: relative;
+    z-index: 1;
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding-bottom: 90px;
+  }
+
+  .screen {
+    display: none;
+    padding: 20px 22px 30px;
+    animation: pageIn 280ms ease-out;
+  }
+  .screen.active { display: block; }
+  @keyframes pageIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-top: 8px;
+  }
+  .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-shadow: var(--gold-glow);
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .streak-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(232, 196, 160, 0.08);
+    border: 1px solid rgba(232, 196, 160, 0.25);
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 0 12px rgba(124, 92, 191, 0.4);
+    cursor: pointer;
+  }
+
+  /* Candle */
+  .candle-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 12px 0 28px;
+  }
+  .candle-svg { width: 110px; height: 160px; overflow: visible; }
+  .flame {
+    transform-origin: center bottom;
+    animation: flicker 2.2s ease-in-out infinite;
+    filter: drop-shadow(0 -2px 12px rgba(232, 196, 160, 0.55));
+  }
+  @keyframes flicker {
+    0%, 100% { transform: scale(1) rotate(-0.5deg); opacity: 0.98; }
+    25% { transform: scale(0.96) rotate(0.5deg); opacity: 0.92; }
+    50% { transform: scale(1.02) rotate(-0.3deg); opacity: 1; }
+    75% { transform: scale(0.94) rotate(0.7deg); opacity: 0.9; }
+  }
+  .candle-day {
+    margin-top: 4px;
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .greeting {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: var(--shadow-card);
+    transition: all 220ms ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-prompt {
+    margin-bottom: 22px;
+    animation: cardReveal 420ms ease-out;
+  }
+  @keyframes cardReveal {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .card-prompt::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(232, 196, 160, 0.08), transparent);
+    animation: shimmer 1.6s ease-out 0.3s;
+  }
+  @keyframes shimmer {
+    to { left: 130%; }
+  }
+  .prompt-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.45;
+    color: var(--text);
+    margin: 12px 0 18px;
+  }
+
+  /* Category pill */
+  .pill {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .pill-shadow { background: rgba(124, 92, 191, 0.2); color: var(--primary-light); border: 1px solid rgba(124, 92, 191, 0.3); }
+  .pill-ic { background: rgba(196, 168, 232, 0.15); color: var(--primary-pale); border: 1px solid rgba(196, 168, 232, 0.3); }
+  .pill-sl { background: rgba(232, 196, 160, 0.15); color: var(--gold); border: 1px solid rgba(232, 196, 160, 0.3); }
+  .pill-ep { background: rgba(93, 202, 165, 0.15); color: var(--teal); border: 1px solid rgba(93, 202, 165, 0.3); }
+  .pill-rl { background: rgba(155, 125, 212, 0.15); color: var(--primary-light); border: 1px solid rgba(155, 125, 212, 0.3); }
+  .pill-rp { background: rgba(232, 87, 138, 0.12); color: var(--danger); border: 1px solid rgba(232, 87, 138, 0.3); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--primary);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 200ms ease;
+    box-shadow: var(--shadow-btn);
+    border: none;
+  }
+  .btn:hover { background: var(--primary-light); transform: translateY(-1px); }
+  .btn:active { transform: translateY(0) scale(0.97); }
+  .btn-full { width: 100%; }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: #3a2818;
+    box-shadow: 0 4px 16px rgba(232, 196, 160, 0.4);
+  }
+  .btn-gold:hover { background: linear-gradient(135deg, var(--gold-light), var(--gold)); }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    box-shadow: none;
+  }
+  .btn-ghost:hover { border-color: var(--border-hover); color: var(--text); }
+  .btn-danger { background: var(--danger); }
+  .btn-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(124, 92, 191, 0.12);
+    color: var(--primary-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 200ms ease;
+  }
+  .btn-icon:hover { background: rgba(124, 92, 191, 0.25); }
+  .btn-icon.active { color: var(--gold); }
+
+  /* Save button with sparkle */
+  .save-wrap { position: relative; }
+  .sparkle {
+    position: absolute;
+    pointer-events: none;
+    color: var(--gold);
+    animation: sparkleBurst 500ms ease-out forwards;
+  }
+  @keyframes sparkleBurst {
+    0% { opacity: 1; transform: translate(0, 0) scale(0.4); }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1); }
+  }
+
+  /* Mood orbs */
+  .mood-section {
+    margin: 18px 0;
+  }
+  .mood-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+  }
+  .mood-row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .mood-orb {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    position: relative;
+    transition: all 200ms ease;
+    background: radial-gradient(circle at 30% 30%, var(--c-light), var(--c-dark));
+    flex: 1;
+    max-width: 40px;
+  }
+  .mood-orb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 16px var(--c-dark);
+  }
+  .mood-orb.selected {
+    transform: scale(1.15);
+    border-color: var(--gold);
+    box-shadow: 0 0 18px var(--c-dark), 0 0 0 2px rgba(232, 196, 160, 0.3);
+    animation: moodPop 250ms ease-out;
+  }
+  @keyframes moodPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1.15); }
+  }
+  .mood-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    color: var(--text);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    margin-bottom: 8px;
+    transition: opacity 200ms;
+    z-index: 10;
+  }
+  .mood-orb:hover .mood-tooltip { opacity: 1; }
+
+  /* Recent entries */
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 26px 0 12px;
+  }
+  .section-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; }
+  .link-soft { font-size: 12px; color: var(--text-secondary); }
+
+  .entry-mini {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    transition: all 220ms;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .entry-mini.reveal { opacity: 1; transform: translateY(0); }
+  .entry-mini:hover { background: var(--card-hover); border-color: var(--border-hover); }
+  .entry-mini-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .entry-mini-date { font-size: 11px; color: var(--text-muted); }
+  .entry-mini-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+  }
+  .entry-mini.delete {
+    animation: slideOutLeft 300ms ease-in forwards;
+  }
+  @keyframes slideOutLeft {
+    to { transform: translateX(-60px); opacity: 0; }
+  }
+
+  /* Affirmation card */
+  .affirmation-card {
+    background: linear-gradient(135deg, rgba(124, 92, 191, 0.12), rgba(232, 196, 160, 0.05));
+    border: 1px solid rgba(232, 196, 160, 0.25);
+    border-radius: 20px;
+    padding: 22px;
+    margin-top: 18px;
+    text-align: center;
+    box-shadow: var(--gold-glow);
+  }
+  .affirmation-card .moon { color: var(--gold); margin-bottom: 8px; }
+  .affirmation-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold-light);
+    line-height: 1.4;
+  }
+
+  /* Bottom Nav */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 64px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+  .nav-btn {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    position: relative;
+    transition: color 200ms;
+  }
+  .nav-btn svg { transition: transform 180ms; }
+  .nav-btn:active svg { animation: navBounce 180ms ease-out; }
+  @keyframes navBounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+  }
+  .nav-indicator {
+    position: absolute;
+    width: 48px;
+    height: 36px;
+    border-radius: 18px;
+    background: rgba(124, 92, 191, 0.18);
+    box-shadow: 0 0 16px rgba(232, 196, 160, 0.15);
+    transition: left 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    top: 14px;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .nav-btn.active { color: var(--gold); }
+
+  /* Page header (non-home) */
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    margin: 8px 0 4px;
+  }
+  .page-subtitle {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+
+  /* Filter row */
+  .filter-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    scrollbar-width: none;
+  }
+  .filter-row::-webkit-scrollbar { display: none; }
+  .filter-chip {
+    padding: 8px 14px;
+    border-radius: 50px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 200ms;
+  }
+  .filter-chip.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-btn);
+  }
+
+  /* Progress */
+  .progress-wrap {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+  .progress-bar {
+    height: 6px;
+    background: rgba(124, 92, 191, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--teal));
+    border-radius: 3px;
+    width: 0%;
+    transition: width 800ms ease-out;
+  }
+
+  /* Search */
+  .search-wrap {
+    position: relative;
+    margin-bottom: 14px;
+  }
+  .search-input {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 16px 12px 40px;
+    color: var(--text);
+    font-size: 14px;
+    transition: border-color 200ms;
+  }
+  .search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+  }
+
+  /* Prompt grid card */
+  .prompt-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr;
+    animation: slideRight 250ms ease-out;
+  }
+  @keyframes slideRight {
+    from { transform: translateX(20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  .prompt-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px 18px;
+    transition: all 220ms;
+    position: relative;
+  }
+  .prompt-card:hover { background: var(--card-hover); border-color: var(--border-hover); }
+  .prompt-card.completed { opacity: 0.55; }
+  .prompt-card.completed::after {
+    content: '✓';
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  .prompt-card-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--text);
+    margin: 8px 0 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .prompt-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Journal screen */
+  .journal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 200ms;
+  }
+  .back-btn:hover { background: var(--card-hover); }
+  .autosave {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  .autosave.show { opacity: 1; }
+
+  .journal-prompt {
+    margin: 18px 0 12px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .journal-prompt-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  .writing-area {
+    position: relative;
+    margin-top: 16px;
+  }
+  .writing-textarea {
+    width: 100%;
+    min-height: 280px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    color: var(--text);
+    font-size: var(--fs-body);
+    line-height: 1.8;
+    resize: vertical;
+    transition: all 200ms;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .writing-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--card-hover);
+  }
+  .writing-textarea:disabled { opacity: 0.4; cursor: not-allowed; }
+  .ripple {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 2px solid var(--primary);
+    pointer-events: none;
+    opacity: 0;
+  }
+  .ripple.fire {
+    animation: rippleOut 600ms ease-out;
+  }
+  @keyframes rippleOut {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.04); opacity: 0; }
+  }
+  .word-count {
+    text-align: right;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Tags */
+  .tag-section { margin: 16px 0; }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag-chip {
+    padding: 6px 12px;
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 200ms;
+  }
+  .tag-chip.selected {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+
+  /* Breathing modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--overlay-bg);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 300ms ease;
+  }
+  .modal-overlay.show { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .breathing-content {
+    text-align: center;
+    color: var(--text);
+  }
+  .breathing-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124, 92, 191, 0.4), rgba(124, 92, 191, 0.1));
+    border: 2px solid var(--primary-light);
+    margin: 0 auto 24px;
+    animation: breathe 8s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+  }
+  .breathing-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--gold);
+  }
+
+  /* Inner child screen */
+  .ic-hero {
+    text-align: center;
+    padding: 12px 0 22px;
+  }
+  .ic-hero svg {
+    width: 120px;
+    height: 140px;
+    margin-bottom: 12px;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .ic-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .ic-subquote { color: var(--text-secondary); font-size: 13px; }
+  .age-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 16px; }
+  .age-chip {
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 200ms;
+    font-size: 13px;
+  }
+  .age-chip.selected {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+  }
+
+  /* Journey screen */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+  }
+  .stat-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Chart */
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+  .chart-card h3 { margin-bottom: 14px; }
+  .chart-svg { width: 100%; height: 160px; display: block; }
+
+  /* Heatmap */
+  .heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 4px;
+    margin-top: 10px;
+  }
+  .heat-cell {
+    aspect-ratio: 1;
+    border-radius: 4px;
+    background: rgba(124, 92, 191, 0.1);
+    transition: transform 150ms;
+    cursor: pointer;
+    position: relative;
+  }
+  .heat-cell:hover { transform: scale(1.3); z-index: 5; }
+  .heat-cell-tip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    white-space: nowrap;
+    color: var(--text);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 6;
+  }
+  .heat-cell:hover .heat-cell-tip { opacity: 1; }
+
+  /* Milestones */
+  .milestone-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .milestone {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    opacity: 0.45;
+  }
+  .milestone.unlocked { opacity: 1; box-shadow: var(--gold-glow); border-color: rgba(232, 196, 160, 0.3); }
+  .milestone-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(124, 92, 191, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .milestone.unlocked .milestone-icon { background: rgba(232, 196, 160, 0.18); }
+  .milestone-title { font-weight: 500; font-size: 14px; }
+  .milestone-sub { font-size: 11px; color: var(--text-muted); }
+
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .tag-cloud-item {
+    background: rgba(124, 92, 191, 0.15);
+    border: 1px solid var(--border);
+    color: var(--primary-light);
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  /* Affirmations screen */
+  .add-affirm {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .input {
+    flex: 1;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 16px;
+    color: var(--text);
+    font-size: 14px;
+    transition: border-color 200ms;
+  }
+  .input:focus { outline: none; border-color: var(--primary); }
+  .add-btn {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 200ms;
+  }
+  .add-btn:hover { background: var(--primary-light); }
+
+  .affirm-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 200ms;
+  }
+  .affirm-item.pinned { border-color: rgba(232, 196, 160, 0.4); box-shadow: var(--gold-glow); }
+  .affirm-text {
+    flex: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--text);
+  }
+  .affirm-actions { display: flex; gap: 6px; }
+
+  /* Suggested affirmations */
+  .suggested-section {
+    margin-top: 20px;
+  }
+  .collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+  }
+  .collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms ease;
+  }
+  .collapsible-content.open { max-height: 2000px; }
+  .suggest-group { margin-top: 12px; }
+  .suggest-group h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .suggest-item {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: all 200ms;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+  .suggest-item:hover { background: var(--card-hover); color: var(--text); }
+
+  /* Settings */
+  .setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .setting-label { font-size: 14px; color: var(--text); }
+  .setting-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .select-input {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+  }
+  .color-picker { display: flex; gap: 8px; }
+  .color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 200ms;
+  }
+  .color-swatch.selected { border-color: var(--gold); transform: scale(1.1); }
+
+  /* Theme toggle */
+  .theme-toggle { cursor: pointer; }
+  .theme-track {
+    width: 58px;
+    height: 30px;
+    background: linear-gradient(135deg, #1A1030, #2D1B55);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    position: relative;
+    transition: background 300ms ease, border-color 300ms ease;
+  }
+  body.theme-light .theme-track {
+    background: linear-gradient(135deg, #F5DFC0, #E8C4A0);
+  }
+  .theme-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3a2818;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: left 300ms cubic-bezier(0.34, 1.56, 0.64, 1), background 300ms ease;
+  }
+  body.theme-light .theme-thumb {
+    left: 32px;
+    background: #FFFFFF;
+    color: #B8895D;
+  }
+  .theme-icon { position: absolute; transition: opacity 200ms ease, transform 300ms ease; }
+  .icon-sun { opacity: 0; transform: rotate(-90deg); }
+  body.theme-light .icon-moon { opacity: 0; transform: rotate(90deg); }
+  body.theme-light .icon-sun { opacity: 1; transform: rotate(0); }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 96px;
+    left: 50%;
+    transform: translateX(-50%) translateY(140px);
+    background: var(--card);
+    border: 1px solid rgba(232, 196, 160, 0.3);
+    color: var(--text);
+    padding: 14px 24px;
+    border-radius: 50px;
+    box-shadow: var(--gold-glow), 0 8px 32px rgba(0,0,0,0.5);
+    z-index: 80;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 300ms ease, opacity 300ms ease, visibility 0s linear 300ms;
+    pointer-events: none !important;
+    max-width: calc(100% - 60px);
+    text-align: center;
+  }
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 300ms ease, opacity 300ms ease, visibility 0s linear 0s;
+  }
+
+  /* Milestone celebration */
+  .celebration {
+    position: fixed;
+    inset: 0;
+    background: var(--celebration-bg);
+    backdrop-filter: blur(12px);
+    z-index: 400;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+  .celebration.show { display: flex; }
+  .celebration-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particleRise var(--dur, 5s) linear infinite;
+  }
+  @keyframes particleRise {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+  }
+  .celebration-badge {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--gold), rgba(232, 196, 160, 0.3));
+    box-shadow: 0 0 60px rgba(232, 196, 160, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin-bottom: 24px;
+    animation: badgeIn 600ms ease-out;
+  }
+  @keyframes badgeIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+  }
+  .celebration h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .celebration p {
+    color: var(--text-secondary);
+    margin-bottom: 26px;
+    max-width: 300px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+  }
+
+  /* Reflection screen */
+  .reflection {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 350;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    text-align: center;
+  }
+  .reflection.show { display: flex; }
+  .reflection h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+  .mood-compare {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 18px 0;
+  }
+  .mood-compare-orb {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--c-light), var(--c-dark));
+  }
+  .mood-arrow { color: var(--gold); font-size: 20px; }
+  .reflection-msg {
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    margin: 18px 0;
+    max-width: 320px;
+  }
+
+  /* Onboarding */
+  .onboarding {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: var(--bg);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 30px;
+    text-align: center;
+    overflow-y: auto;
+  }
+  .onboarding.show { display: flex; }
+  .onb-step { display: none; max-width: 380px; width: 100%; animation: pageIn 400ms ease-out; }
+  .onb-step.active { display: block; }
+  .onb-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-shadow: var(--gold-glow);
+  }
+  .onb-subtitle {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    margin-bottom: 36px;
+  }
+  .onb-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: var(--text);
+  }
+  .intention-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .intention-card {
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 18px;
+    padding: 18px 12px;
+    cursor: pointer;
+    transition: all 220ms;
+    text-align: center;
+  }
+  .intention-card:hover { border-color: var(--border-hover); }
+  .intention-card.selected {
+    border-color: var(--gold);
+    background: var(--card-hover);
+    box-shadow: var(--gold-glow);
+  }
+  .intention-icon { font-size: 26px; margin-bottom: 8px; }
+  .intention-text { font-size: 13px; color: var(--text-secondary); }
+  .intention-card.selected .intention-text { color: var(--text); }
+  .onb-input {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    color: var(--text);
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 24px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+  .onb-input:focus { outline: none; border-color: var(--primary); }
+  .onb-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* Letter view */
+  .letter-view {
+    background: linear-gradient(180deg, rgba(232, 196, 160, 0.04), transparent);
+    border: 1px solid rgba(232, 196, 160, 0.2);
+    border-radius: 18px;
+    padding: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .letter-date { color: var(--text-muted); font-size: 12px; margin-bottom: 10px; font-style: italic; }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-secondary);
+  }
+  .empty-state svg {
+    margin-bottom: 18px;
+    animation: float 4s ease-in-out infinite;
+  }
+  .empty-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-secondary);
+  }
+
+  /* Heart particles */
+  .heart-particle {
+    position: absolute;
+    color: var(--danger);
+    pointer-events: none;
+    animation: heartFloat 400ms ease-out forwards;
+  }
+  @keyframes heartFloat {
+    0% { opacity: 1; transform: translate(0,0) scale(0.6); }
+    100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.2); }
+  }
+
+  /* Utility */
+  .row { display: flex; align-items: center; gap: 8px; }
+  .between { display: flex; justify-content: space-between; align-items: center; }
+  .mt-1 { margin-top: 8px; }
+  .mt-2 { margin-top: 16px; }
+  .mb-1 { margin-bottom: 8px; }
+  .text-muted { color: var(--text-muted); }
+  .text-gold { color: var(--gold); }
+  .small { font-size: 12px; }
+  .center { text-align: center; }
+  .hidden { display: none !important; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Print (PDF export) */
+  @media print {
+    body { background: #fff; color: #000; }
+    .bottom-nav, .header-right, .btn, .starfield { display: none !important; }
+    .screen { display: block !important; padding: 20px; }
+    .card, .entry-mini { background: #fff; border: 1px solid #ccc; box-shadow: none; }
+    h1, h2, h3, .prompt-text { color: #000; }
+  }
+</style>
+</head>
+<body class="font-medium">
+
+<div class="starfield" id="starfield"></div>
+
+<!-- ONBOARDING -->
+<div class="onboarding" id="onboarding">
+  <div class="onb-step active" id="onb-1">
+    <div style="display:flex;justify-content:center;margin-bottom:14px;">
+      <svg width="100" height="140" viewBox="0 0 100 140">
+        <ellipse cx="50" cy="135" rx="32" ry="4" fill="rgba(232,196,160,0.15)"/>
+        <rect x="40" y="68" width="20" height="60" rx="6" fill="#E8C4A0"/>
+        <ellipse cx="50" cy="70" rx="10" ry="3" fill="#3a2818"/>
+        <rect x="49" y="50" width="2" height="20" fill="#3a2818"/>
+        <path class="flame" d="M50,18 C44,30 42,42 50,50 C58,42 56,30 50,18 Z" fill="#E8C4A0"/>
+        <path class="flame" d="M50,28 C46,36 46,44 50,48 C54,44 54,36 50,28 Z" fill="#F5DFC0"/>
+      </svg>
+    </div>
+    <div class="onb-title">Lumina</div>
+    <div class="onb-subtitle">Bring light to the shadow</div>
+    <button class="btn btn-gold" onclick="onbNext()">Begin your journey</button>
+  </div>
+
+  <div class="onb-step" id="onb-2">
+    <div class="onb-question">What shall I call you, dear soul?</div>
+    <input class="onb-input" id="onb-name" placeholder="Your name..." autocomplete="off" maxlength="30">
+    <div class="onb-actions">
+      <button class="btn btn-ghost" onclick="onbNext(true)">Skip</button>
+      <button class="btn" onclick="onbSaveName()">Continue</button>
+    </div>
+  </div>
+
+  <div class="onb-step" id="onb-3">
+    <div class="onb-question">What brings you here?</div>
+    <div class="intention-grid" id="onb-intentions">
+      <div class="intention-card" data-int="understand"><div class="intention-icon">✦</div><div class="intention-text">Understand myself deeper</div></div>
+      <div class="intention-card" data-int="heal"><div class="intention-icon">☾</div><div class="intention-text">Heal old wounds</div></div>
+      <div class="intention-card" data-int="break"><div class="intention-icon">⟡</div><div class="intention-text">Break old patterns</div></div>
+      <div class="intention-card" data-int="love"><div class="intention-icon">♡</div><div class="intention-text">Love myself more</div></div>
+    </div>
+    <button class="btn" onclick="onbNext()">Continue</button>
+  </div>
+
+  <div class="onb-step" id="onb-4">
+    <div class="onb-title" style="font-size:28px;">Your first prompt</div>
+    <div class="card card-prompt" style="margin:22px 0;">
+      <span class="pill pill-ic">Inner Child</span>
+      <div class="prompt-text" id="onb-first-prompt"></div>
+    </div>
+    <div class="onb-actions">
+      <button class="btn btn-ghost" onclick="onbFinish('home')">Explore first</button>
+      <button class="btn btn-gold" onclick="onbFinish('write')">Write now</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app" id="app" style="display:none;">
+
+  <!-- SCREEN: HOME -->
+  <section class="screen active" id="screen-home">
+    <div class="header">
+      <div class="wordmark">Lumina</div>
+      <div class="header-right">
+        <div class="streak-chip" id="streak-chip">
+          <svg width="12" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 0-1 4-4 7c-2 2-2 5 0 7c1 1 2 1 4 1c2 0 3 0 4-1c2-2 2-5 0-7c-3-3-4-7-4-7z"/></svg>
+          <span id="streak-num">0</span> days
+        </div>
+        <div class="avatar" id="avatar" onclick="show('settings')">L</div>
+      </div>
+    </div>
+
+    <div class="candle-wrap">
+      <svg class="candle-svg" viewBox="0 0 100 160">
+        <ellipse cx="50" cy="155" rx="36" ry="5" fill="rgba(232,196,160,0.12)"/>
+        <ellipse cx="50" cy="78" rx="40" ry="6" fill="rgba(232,196,160,0.18)" filter="blur(8px)"/>
+        <rect x="38" y="80" width="24" height="74" rx="6" fill="#E8C4A0"/>
+        <rect x="38" y="80" width="24" height="74" rx="6" fill="url(#candleShade)"/>
+        <ellipse cx="50" cy="82" rx="12" ry="3.5" fill="#c9a280"/>
+        <rect x="49" y="60" width="2" height="22" fill="#3a2818"/>
+        <path class="flame" d="M50,18 C42,32 38,46 50,58 C62,46 58,32 50,18 Z" fill="#E8C4A0" opacity="0.95"/>
+        <path class="flame" d="M50,30 C45,40 44,50 50,56 C56,50 55,40 50,30 Z" fill="#F5DFC0"/>
+        <defs>
+          <linearGradient id="candleShade" x1="0" x2="1">
+            <stop offset="0" stop-color="rgba(0,0,0,0.15)"/>
+            <stop offset="0.5" stop-color="rgba(0,0,0,0)"/>
+            <stop offset="1" stop-color="rgba(0,0,0,0.2)"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="candle-day" id="candle-day">Day 1 of your healing journey</div>
+    </div>
+
+    <div class="greeting" id="greeting"></div>
+
+    <div class="card card-prompt" id="todays-prompt-card">
+      <div class="between">
+        <span class="pill" id="todays-pill"></span>
+        <div class="row">
+          <button class="btn-icon" id="bookmark-today" title="Bookmark" onclick="toggleFavToday()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+          <button class="btn-icon" title="New prompt" onclick="refreshTodayPrompt()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="prompt-text" id="todays-prompt-text"></div>
+      <button class="btn btn-full" onclick="startJournalForToday()">Begin writing</button>
+    </div>
+
+    <div id="mood-checkin" class="mood-section hidden">
+      <div class="mood-label">How are you feeling right now?</div>
+      <div class="mood-row" id="home-mood-row"></div>
+    </div>
+
+    <div class="section-head">
+      <h3>Recent entries</h3>
+      <a class="link-soft" onclick="show('journey')">View all</a>
+    </div>
+    <div id="recent-entries"></div>
+
+    <div class="affirmation-card" id="daily-affirm">
+      <div class="moon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </div>
+      <div class="affirmation-text" id="daily-affirm-text">I am worthy of love and healing.</div>
+    </div>
+  </section>
+
+  <!-- SCREEN: PROMPTS -->
+  <section class="screen" id="screen-prompts">
+    <h1 class="page-title">Explore prompts</h1>
+    <p class="page-subtitle">108 paths into your light</p>
+
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="progress-text">0 of 108 prompts explored</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <div class="search-wrap">
+      <span class="search-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </span>
+      <input class="search-input" id="prompt-search" placeholder="Search prompts..." oninput="renderPrompts()">
+    </div>
+
+    <div class="filter-row" id="filter-row">
+      <div class="filter-chip active" data-cat="all">All</div>
+      <div class="filter-chip" data-cat="shadow">Shadow</div>
+      <div class="filter-chip" data-cat="ic">Inner Child</div>
+      <div class="filter-chip" data-cat="sl">Self-Love</div>
+      <div class="filter-chip" data-cat="ep">Emotional</div>
+      <div class="filter-chip" data-cat="rl">Releasing</div>
+      <div class="filter-chip" data-cat="rp">Reparenting</div>
+    </div>
+
+    <div class="prompt-grid" id="prompt-grid"></div>
+  </section>
+
+  <!-- SCREEN: JOURNAL -->
+  <section class="screen" id="screen-journal">
+    <div class="journal-head">
+      <button class="back-btn" onclick="goBackFromJournal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="row">
+        <span class="pill" id="journal-pill"></span>
+        <span class="small text-muted" id="journal-date"></span>
+      </div>
+      <span class="autosave" id="autosave">Autosaving...</span>
+    </div>
+
+    <div class="journal-prompt">
+      <div class="journal-prompt-text" id="journal-prompt-text"></div>
+    </div>
+
+    <div class="mood-section">
+      <div class="mood-label">Before you begin, how are you feeling?</div>
+      <div class="mood-row" id="journal-mood-before"></div>
+    </div>
+
+    <div class="writing-area">
+      <div class="ripple" id="ripple"></div>
+      <textarea class="writing-textarea" id="writing-textarea" disabled placeholder="Let whatever wants to come, come. This space is only yours..."></textarea>
+      <div class="word-count"><span id="word-count">0</span> words</div>
+    </div>
+
+    <div class="between mt-2">
+      <button class="btn btn-ghost" onclick="openBreathing()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+        Pause to breathe
+      </button>
+      <span class="small text-muted" id="duration-label"></span>
+    </div>
+
+    <div class="tag-section">
+      <div class="mood-label">Tags</div>
+      <div class="tag-row" id="tag-row"></div>
+    </div>
+
+    <div id="mood-after-section" class="mood-section hidden">
+      <div class="mood-label">Now that you've written, how do you feel?</div>
+      <div class="mood-row" id="journal-mood-after"></div>
+    </div>
+
+    <div class="save-wrap mt-2">
+      <button class="btn btn-gold btn-full" id="save-btn" onclick="saveEntry()">Save this entry ✦</button>
+    </div>
+  </section>
+
+  <!-- SCREEN: INNER CHILD -->
+  <section class="screen" id="screen-innerchild">
+    <div class="ic-hero">
+      <svg viewBox="0 0 120 140">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="rgba(232,196,160,0.25)"/>
+            <stop offset="100%" stop-color="rgba(232,196,160,0)"/>
+          </radialGradient>
+        </defs>
+        <circle cx="60" cy="55" r="55" fill="url(#glow)"/>
+        <circle cx="60" cy="55" r="14" fill="#C4A8E8" opacity="0.8"/>
+        <path d="M48 68 Q42 90 44 130 L52 130 Q54 95 54 80 M72 68 Q78 90 76 130 L68 130 Q66 95 66 80" fill="#C4A8E8" opacity="0.8"/>
+        <ellipse cx="60" cy="78" rx="14" ry="12" fill="#C4A8E8" opacity="0.8"/>
+      </svg>
+      <div class="ic-quote">She is still there. She never left.</div>
+      <div class="ic-subquote">A sacred space for your younger self</div>
+    </div>
+
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:8px;">Write to little you</h3>
+    <p class="small text-muted mb-1">Choose an age to write to</p>
+    <div class="age-row" id="age-row">
+      <div class="age-chip selected" data-age="4">Age 4</div>
+      <div class="age-chip" data-age="7">Age 7</div>
+      <div class="age-chip" data-age="10">Age 10</div>
+      <div class="age-chip" data-age="13">Age 13</div>
+      <div class="age-chip" data-age="16">Age 16</div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px;">
+      <div class="small text-muted">Dear little <span id="letter-name">soul</span>,</div>
+      <textarea class="writing-textarea" id="letter-textarea" placeholder="What does she need to hear from you today..." style="margin-top:8px;min-height:180px;background:transparent;border:none;padding:0;"></textarea>
+      <div class="small text-muted" style="text-align:right;margin-top:8px;">With all my love, <span id="letter-signer">soul</span></div>
+      <button class="btn btn-gold btn-full mt-2" onclick="saveLetter()">Send this letter to her ✦</button>
+    </div>
+
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;margin:18px 0 10px;">Past letters</h3>
+    <div id="letter-list"></div>
+  </section>
+
+  <!-- SCREEN: JOURNEY -->
+  <section class="screen" id="screen-journey">
+    <h1 class="page-title">Your healing story</h1>
+    <p class="page-subtitle">A map of light gathered</p>
+
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-value" id="stat-days">0</div><div class="stat-label">Days journaling</div></div>
+      <div class="stat-card"><div class="stat-value" id="stat-entries">0</div><div class="stat-label">Total entries</div></div>
+      <div class="stat-card"><div class="stat-value" id="stat-prompts">0/108</div><div class="stat-label">Prompts explored</div></div>
+      <div class="stat-card"><div class="stat-value" id="stat-streak">0</div><div class="stat-label">Longest streak</div></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Emotional trend · last 14 days</h3>
+      <svg class="chart-svg" id="trend-chart" viewBox="0 0 320 160" preserveAspectRatio="none"></svg>
+      <div class="row small text-muted" style="justify-content:center;gap:18px;margin-top:6px;">
+        <span><span style="display:inline-block;width:10px;height:2px;background:var(--text-muted);vertical-align:middle;margin-right:6px;"></span>Before</span>
+        <span><span style="display:inline-block;width:10px;height:2px;background:var(--gold);vertical-align:middle;margin-right:6px;"></span>After</span>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Monthly map</h3>
+      <div class="heatmap-grid" id="heatmap"></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Milestones</h3>
+      <div class="milestone-list" id="milestone-list"></div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Themes & patterns</h3>
+      <div class="small text-muted mb-1" id="theme-summary">Your themes will emerge as you write.</div>
+      <div class="tag-cloud" id="tag-cloud"></div>
+    </div>
+
+    <div class="chart-card" id="monthly-reflection-card" style="display:none;">
+      <h3>Monthly reflection</h3>
+      <p class="small text-muted">A new month begins. Take a moment to reflect.</p>
+      <button class="btn btn-gold btn-full mt-2" onclick="startMonthlyReflection()">Begin reflection ✦</button>
+    </div>
+  </section>
+
+  <!-- SCREEN: AFFIRMATIONS -->
+  <section class="screen" id="screen-affirmations">
+    <h1 class="page-title">Words for your soul</h1>
+    <p class="page-subtitle">Speak love into being</p>
+
+    <div class="affirmation-card">
+      <div class="moon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </div>
+      <div class="affirmation-text" id="affirm-feature">I am worthy of love and healing.</div>
+    </div>
+
+    <div class="add-affirm mt-2">
+      <input class="input" id="affirm-input" placeholder="Write an affirmation...">
+      <button class="add-btn" onclick="addAffirmation(event)">Add</button>
+    </div>
+
+    <div id="affirm-list"></div>
+
+    <div class="suggested-section">
+      <div class="collapsible-header" onclick="this.nextElementSibling.classList.toggle('open')">
+        <h3>Suggested affirmations</h3>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+      <div class="collapsible-content" id="suggested-content"></div>
+    </div>
+  </section>
+
+  <!-- SCREEN: SETTINGS -->
+  <section class="screen" id="screen-settings">
+    <h1 class="page-title">Sacred settings</h1>
+    <p class="page-subtitle">Shape your space</p>
+
+    <div class="card mt-2">
+      <h3 style="margin-bottom:12px;">Profile</h3>
+      <div class="setting-row">
+        <div><div class="setting-label">Name</div></div>
+        <input class="input" id="set-name" style="max-width:180px;" onchange="updateName(this.value)">
+      </div>
+      <div class="setting-row">
+        <div><div class="setting-label">Journey start date</div></div>
+        <input type="date" class="select-input" id="set-start-date" onchange="updateStartDate(this.value)">
+      </div>
+      <div class="setting-row">
+        <div><div class="setting-label">Avatar color</div></div>
+        <div class="color-picker" id="color-picker">
+          <div class="color-swatch" data-c="#7C5CBF" style="background:#7C5CBF;"></div>
+          <div class="color-swatch" data-c="#9B7DD4" style="background:#9B7DD4;"></div>
+          <div class="color-swatch" data-c="#C4A8E8" style="background:#C4A8E8;"></div>
+          <div class="color-swatch" data-c="#E8C4A0" style="background:#E8C4A0;"></div>
+          <div class="color-swatch" data-c="#5DCAA5" style="background:#5DCAA5;"></div>
+          <div class="color-swatch" data-c="#E8578A" style="background:#E8578A;"></div>
+        </div>
+      </div>
+      <div class="setting-row">
+        <div>
+          <div class="setting-label">Theme</div>
+          <div class="setting-sub">Switch between dark and light</div>
+        </div>
+        <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">
+          <div class="theme-track">
+            <div class="theme-thumb">
+              <svg class="theme-icon icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              <svg class="theme-icon icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <h3 style="margin-bottom:12px;">Journal</h3>
+      <div class="setting-row">
+        <div><div class="setting-label">Breathing duration</div></div>
+        <select class="select-input" id="set-breath" onchange="updateBreath(this.value)">
+          <option value="4">4 seconds</option>
+          <option value="6">6 seconds</option>
+          <option value="8">8 seconds</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <h3 style="margin-bottom:12px;">Data</h3>
+      <div class="setting-row"><button class="btn btn-ghost btn-full" onclick="exportData()">Export journal (JSON)</button></div>
+      <div class="setting-row">
+        <label class="btn btn-ghost btn-full" style="cursor:pointer;">
+          Import journal
+          <input type="file" id="import-file" accept=".json" style="display:none;" onchange="importData(event)">
+        </label>
+      </div>
+      <div class="setting-row"><button class="btn btn-ghost btn-full" onclick="exportPdf()">Export as PDF</button></div>
+      <div class="setting-row"><button class="btn btn-danger btn-full" onclick="confirmClearData()">Clear all data</button></div>
+    </div>
+
+    <div class="card mt-2" id="install-card" style="display:none;">
+      <h3 style="margin-bottom:8px;">Install Lumina</h3>
+      <p class="small text-muted mb-1" id="install-text" style="line-height:1.6;">Keep Lumina close. Install it to your device for a quiet, app-like experience that works offline.</p>
+      <button class="btn btn-gold btn-full mt-2" id="install-btn" onclick="installApp()">Install Lumina ✦</button>
+    </div>
+
+    <div class="card mt-2">
+      <h3 style="margin-bottom:8px;">About</h3>
+      <p class="small text-muted">Lumina v1.0</p>
+      <p class="small text-muted mt-1" style="line-height:1.6;">Lumina stores everything only on your device. Your healing journey is yours alone. Nothing is ever shared or uploaded.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav" id="bottom-nav">
+  <div class="nav-indicator" id="nav-indicator"></div>
+  <button class="nav-btn active" data-screen="home" onclick="show('home')" title="Home">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="9" y="11" width="6" height="10" rx="1.5"/><line x1="12" y1="7" x2="12" y2="11"/><path d="M12 3c-2 3-3 5 0 7c3-2 2-4 0-7z" fill="currentColor"/></svg>
+  </button>
+  <button class="nav-btn" data-screen="prompts" onclick="show('prompts')" title="Prompts">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2zM22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg>
+  </button>
+  <button class="nav-btn" data-screen="innerchild" onclick="show('innerchild')" title="Inner child">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M20 20 4 4m4 0L4 4l4 4M20 20l-4-4m4 4-4 0 0-4"/><path d="m4 4 16 16M14 4c1 2 3 4 6 6M4 14c2 1 4 3 6 6"/></svg>
+  </button>
+  <button class="nav-btn" data-screen="journey" onclick="show('journey')" title="Journey">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
+  </button>
+  <button class="nav-btn" data-screen="affirmations" onclick="show('affirmations')" title="Affirmations">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</nav>
+
+<!-- Breathing modal -->
+<div class="modal-overlay" id="breathing-modal" onclick="closeBreathing()">
+  <div class="breathing-content">
+    <div class="breathing-circle" id="breathing-circle"></div>
+    <div class="breathing-text" id="breathing-text">Inhale...</div>
+    <div class="small text-muted mt-2">Tap anywhere to close</div>
+  </div>
+</div>
+
+<!-- Celebration -->
+<div class="celebration" id="celebration">
+  <div id="celebration-particles"></div>
+  <div class="celebration-badge" id="celebration-badge">✦</div>
+  <h2 id="celebration-title"></h2>
+  <p id="celebration-msg"></p>
+  <button class="btn btn-gold" onclick="closeCelebration()">Continue your journey</button>
+</div>
+
+<!-- Reflection screen -->
+<div class="reflection" id="reflection">
+  <h2>You did something brave today.</h2>
+  <div class="mood-compare" id="mood-compare"></div>
+  <div class="reflection-msg" id="reflection-msg"></div>
+  <button class="btn btn-ghost" onclick="closeReflection()">Continue</button>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* =============== PROMPT LIBRARY (108) =============== */
+const PROMPTS = [
+  // Shadow Work (24)
+  {id:'sw_001',cat:'shadow',text:"What emotion do I avoid feeling the most, and what does avoiding it protect me from?"},
+  {id:'sw_002',cat:'shadow',text:"Think of someone who irritates you deeply. What quality in them mirrors something you reject in yourself?"},
+  {id:'sw_003',cat:'shadow',text:"What parts of yourself do you hide from others? Why?"},
+  {id:'sw_004',cat:'shadow',text:"When do you feel most like a fraud or impostor? What does that reveal?"},
+  {id:'sw_005',cat:'shadow',text:"What do you judge most harshly in other people? Could that be a disowned part of you?"},
+  {id:'sw_006',cat:'shadow',text:"What would you do if you weren't afraid of being judged?"},
+  {id:'sw_007',cat:'shadow',text:"What negative belief about yourself do you return to most often? Where did it come from?"},
+  {id:'sw_008',cat:'shadow',text:"Describe a moment you acted in a way you're ashamed of. What need were you trying to meet?"},
+  {id:'sw_009',cat:'shadow',text:"What anger have you been holding back? Who or what is it really directed at?"},
+  {id:'sw_010',cat:'shadow',text:"What does your jealousy reveal about what you secretly want?"},
+  {id:'sw_011',cat:'shadow',text:"What part of you do you call 'too much'? Who first told you that?"},
+  {id:'sw_012',cat:'shadow',text:"Describe the version of you no one is allowed to see."},
+  {id:'sw_013',cat:'shadow',text:"When you imagine being fully seen, what feeling rises first?"},
+  {id:'sw_014',cat:'shadow',text:"What do you criticize in others that you secretly fear is true of you?"},
+  {id:'sw_015',cat:'shadow',text:"What rules do you follow that you never agreed to?"},
+  {id:'sw_016',cat:'shadow',text:"Where in your life are you performing instead of living?"},
+  {id:'sw_017',cat:'shadow',text:"What desire do you have that feels shameful to admit?"},
+  {id:'sw_018',cat:'shadow',text:"When did you last betray yourself to keep the peace?"},
+  {id:'sw_019',cat:'shadow',text:"What feeling do you immediately try to fix or escape from?"},
+  {id:'sw_020',cat:'shadow',text:"What story about yourself are you ready to stop telling?"},
+  {id:'sw_021',cat:'shadow',text:"Whose voice do you hear when you criticize yourself?"},
+  {id:'sw_022',cat:'shadow',text:"What part of your past still has power over how you act today?"},
+  {id:'sw_023',cat:'shadow',text:"Where do you confuse love with self-abandonment?"},
+  {id:'sw_024',cat:'shadow',text:"What truth have you been refusing to look at?"},
+  // Inner Child (20)
+  {id:'ic_001',cat:'ic',text:"What did little you need to hear that you never got to hear? Write it as a letter to her."},
+  {id:'ic_002',cat:'ic',text:"What childhood belief about yourself are you still living by today without realising it?"},
+  {id:'ic_003',cat:'ic',text:"When did you first learn that parts of you were 'too much' or 'not enough'?"},
+  {id:'ic_004',cat:'ic',text:"What did you love doing as a child that you've abandoned? What stopped you?"},
+  {id:'ic_005',cat:'ic',text:"Write a letter from your adult self to your younger self at age 7."},
+  {id:'ic_006',cat:'ic',text:"Who was your favorite person as a child? What did they make you feel that you still long for?"},
+  {id:'ic_007',cat:'ic',text:"What is your earliest memory of feeling unsafe? What did little you need in that moment?"},
+  {id:'ic_008',cat:'ic',text:"What did you have to grow up too fast about? Who would you be if you hadn't had to?"},
+  {id:'ic_009',cat:'ic',text:"What did you wish your parents had asked you?"},
+  {id:'ic_010',cat:'ic',text:"Describe your childhood bedroom. What feelings live there?"},
+  {id:'ic_011',cat:'ic',text:"What were you punished for that wasn't actually wrong?"},
+  {id:'ic_012',cat:'ic',text:"What did you do as a child to feel loved? Are you still doing it?"},
+  {id:'ic_013',cat:'ic',text:"What were you praised for that became a cage?"},
+  {id:'ic_014',cat:'ic',text:"When did you first hide a part of yourself? Why?"},
+  {id:'ic_015',cat:'ic',text:"What did your inner child learn about love? Is it still true for you?"},
+  {id:'ic_016',cat:'ic',text:"If your 8-year-old self saw your life today, what would she be proud of? What would worry her?"},
+  {id:'ic_017',cat:'ic',text:"What did you secretly cry about as a child?"},
+  {id:'ic_018',cat:'ic',text:"What did you wish someone had protected you from?"},
+  {id:'ic_019',cat:'ic',text:"Describe one perfect childhood moment. What was true about you then that is still true now?"},
+  {id:'ic_020',cat:'ic',text:"What does your inner child need from you today?"},
+  // Self-Love (18)
+  {id:'sl_001',cat:'sl',text:"In what areas of your life do you still seek external validation? What would change if you gave that to yourself?"},
+  {id:'sl_002',cat:'sl',text:"How do you speak to yourself when you make a mistake? Would you speak that way to a friend?"},
+  {id:'sl_003',cat:'sl',text:"List 10 things your body does for you that you take for granted."},
+  {id:'sl_004',cat:'sl',text:"What would self-love look like in your daily routine?"},
+  {id:'sl_005',cat:'sl',text:"What is one thing you can do today purely for your own joy?"},
+  {id:'sl_006',cat:'sl',text:"What boundary would protect your softness right now?"},
+  {id:'sl_007',cat:'sl',text:"Describe yourself the way someone who loves you deeply would."},
+  {id:'sl_008',cat:'sl',text:"What about you is uniquely, undeniably yours?"},
+  {id:'sl_009',cat:'sl',text:"What apology do you owe yourself?"},
+  {id:'sl_010',cat:'sl',text:"What would it mean to choose yourself this week?"},
+  {id:'sl_011',cat:'sl',text:"Where are you still waiting for permission to be yourself?"},
+  {id:'sl_012',cat:'sl',text:"What do you need to forgive yourself for?"},
+  {id:'sl_013',cat:'sl',text:"When do you feel most at home in your body?"},
+  {id:'sl_014',cat:'sl',text:"What part of you have you been at war with? What would peace look like?"},
+  {id:'sl_015',cat:'sl',text:"How would your life change if you believed you deserved good things?"},
+  {id:'sl_016',cat:'sl',text:"What does it feel like when you truly receive love? Where do you struggle to receive?"},
+  {id:'sl_017',cat:'sl',text:"What is something you've survived that you've never given yourself credit for?"},
+  {id:'sl_018',cat:'sl',text:"How can you be your own safe place today?"},
+  // Emotional Patterns (18)
+  {id:'ep_001',cat:'ep',text:"What triggers a disproportionate reaction in you, and what old wound might it be touching?"},
+  {id:'ep_002',cat:'ep',text:"How do you behave when you feel rejected? Where did that response begin?"},
+  {id:'ep_003',cat:'ep',text:"What feeling do you reach for food, scrolling, or distraction to avoid?"},
+  {id:'ep_004',cat:'ep',text:"Describe a recent moment you overreacted. What was the deeper feeling beneath it?"},
+  {id:'ep_005',cat:'ep',text:"In what relationships do you become someone you don't recognize? Why?"},
+  {id:'ep_006',cat:'ep',text:"When you're upset, do you turn toward people or away from them? Where did that come from?"},
+  {id:'ep_007',cat:'ep',text:"What pattern keeps showing up in your relationships?"},
+  {id:'ep_008',cat:'ep',text:"What do you do when you feel powerless?"},
+  {id:'ep_009',cat:'ep',text:"How does conflict make you feel? What did conflict feel like in your home growing up?"},
+  {id:'ep_010',cat:'ep',text:"What feeling do you cover with anger? With humour? With silence?"},
+  {id:'ep_011',cat:'ep',text:"When did you last feel jealous? What did it want you to see?"},
+  {id:'ep_012',cat:'ep',text:"How do you respond when someone disappoints you?"},
+  {id:'ep_013',cat:'ep',text:"What is your most common defense mechanism, and what is it protecting?"},
+  {id:'ep_014',cat:'ep',text:"Describe how you act when you feel unloved."},
+  {id:'ep_015',cat:'ep',text:"What feeling do you struggle to let others see?"},
+  {id:'ep_016',cat:'ep',text:"What kind of love feels familiar to you? Is it the kind you actually want?"},
+  {id:'ep_017',cat:'ep',text:"When you feel anxious, what is the worst thing you imagine? What does that reveal?"},
+  {id:'ep_018',cat:'ep',text:"What emotion takes the longest to leave your body?"},
+  // Releasing & Letting Go (16)
+  {id:'rl_001',cat:'rl',text:"What story about your past is keeping you small? What would happen if you put it down?"},
+  {id:'rl_002',cat:'rl',text:"Who do you need to forgive — not for them, but for your own freedom?"},
+  {id:'rl_003',cat:'rl',text:"Write a goodbye letter to the version of you you've outgrown."},
+  {id:'rl_004',cat:'rl',text:"What grief have you not yet let yourself feel?"},
+  {id:'rl_005',cat:'rl',text:"What are you still carrying for someone else that isn't yours?"},
+  {id:'rl_006',cat:'rl',text:"What dream did you have to let die so you could grow?"},
+  {id:'rl_007',cat:'rl',text:"What resentment is taking up too much room in you?"},
+  {id:'rl_008',cat:'rl',text:"What identity are you ready to release?"},
+  {id:'rl_009',cat:'rl',text:"What memory do you keep returning to, and what does it want from you?"},
+  {id:'rl_010',cat:'rl',text:"What would forgiveness toward yourself sound like?"},
+  {id:'rl_011',cat:'rl',text:"What belief about love do you need to bury?"},
+  {id:'rl_012',cat:'rl',text:"Write a letter to a person you need to release. You don't have to send it."},
+  {id:'rl_013',cat:'rl',text:"What ending do you still need to mourn?"},
+  {id:'rl_014',cat:'rl',text:"What do you need to stop hoping for so you can live now?"},
+  {id:'rl_015',cat:'rl',text:"What lesson is finally complete? Thank it and let it go."},
+  {id:'rl_016',cat:'rl',text:"What is one thing you can release today, even if it's just one breath of holding?"},
+  // Reparenting (12)
+  {id:'rp_001',cat:'rp',text:"What does your inner child need from you today that no one else can give her?"},
+  {id:'rp_002',cat:'rp',text:"What kind of mother or father did you need? Can you offer that to yourself now?"},
+  {id:'rp_003',cat:'rp',text:"What boundary would your inner child feel safer with?"},
+  {id:'rp_004',cat:'rp',text:"How can you soothe yourself the way you wished someone had?"},
+  {id:'rp_005',cat:'rp',text:"What words does your younger self most need to hear from you tonight?"},
+  {id:'rp_006',cat:'rp',text:"What permission do you need to give yourself?"},
+  {id:'rp_007',cat:'rp',text:"How do you want to talk to yourself when you're afraid?"},
+  {id:'rp_008',cat:'rp',text:"What small ritual could you build to feel safe in your body?"},
+  {id:'rp_009',cat:'rp',text:"Write a list of promises from your adult self to your inner child."},
+  {id:'rp_010',cat:'rp',text:"What does 'home' mean to you, and how can you build that within yourself?"},
+  {id:'rp_011',cat:'rp',text:"How can you let yourself rest the way a loved child gets to rest?"},
+  {id:'rp_012',cat:'rp',text:"What would it look like to be your own safe person every day?"}
+];
+
+const CAT_NAMES = {
+  shadow:'Shadow', ic:'Inner Child', sl:'Self-Love',
+  ep:'Emotional', rl:'Releasing', rp:'Reparenting'
+};
+const CAT_PILL = {
+  shadow:'pill-shadow', ic:'pill-ic', sl:'pill-sl',
+  ep:'pill-ep', rl:'pill-rl', rp:'pill-rp'
+};
+
+const SUGGESTED_TAGS = {
+  shadow: ['fear','anger','shame','childhood','masks','wounds','truth'],
+  ic: ['loneliness','play','safety','needs','love','memory'],
+  sl: ['worth','body','rest','choice','permission'],
+  ep: ['trigger','pattern','defense','grief','jealousy'],
+  rl: ['forgiveness','grief','release','past','goodbye'],
+  rp: ['safety','soothe','promise','boundary','home']
+};
+
+const MOODS = [
+  {v:1,c:'#4A3860',cl:'#6B5685',label:'Broken',desc:"It's heavy right now."},
+  {v:2,c:'#5A4070',cl:'#7C5C90',label:'Heavy',desc:"Carrying a lot today."},
+  {v:3,c:'#6B5490',cl:'#8B72B0',label:'Cloudy',desc:"A little foggy."},
+  {v:4,c:'#7C5CBF',cl:'#9B7DD4',label:'Neutral',desc:"Just here."},
+  {v:5,c:'#9B7DD4',cl:'#B89BE0',label:'Okay',desc:"Finding my footing."},
+  {v:6,c:'#C4A8E8',cl:'#DBCAF0',label:'Opening',desc:"Something is shifting."},
+  {v:7,c:'#E8C4A0',cl:'#F5DFC0',label:'Radiant',desc:"I feel the light."}
+];
+
+const SUGGESTED_AFFIRMATIONS = [
+  {theme:'Self-worth', items:[
+    "I am enough exactly as I am.",
+    "My worth is not earned. It simply is.",
+    "I belong to myself first.",
+    "I do not need to be smaller to be loved.",
+    "I am allowed to take up space."
+  ]},
+  {theme:'Healing', items:[
+    "Every layer I release makes me freer.",
+    "Healing happens in its own sacred time.",
+    "I am becoming, not broken.",
+    "My past does not define my future.",
+    "I am tender with my own becoming."
+  ]},
+  {theme:'Safety', items:[
+    "I am safe to feel all of my feelings.",
+    "My body is a home, not a battlefield.",
+    "I am safe to be seen.",
+    "I trust the wisdom of my inner knowing."
+  ]},
+  {theme:'Power', items:[
+    "I reclaim all the parts of me I hid away.",
+    "I am the author of my own story.",
+    "My voice matters.",
+    "I choose myself, even when it's hard.",
+    "I am allowed to grow beyond who I have been.",
+    "I am the light I have been looking for."
+  ]}
+];
+
+const MILESTONES = [
+  {days:1, icon:'🌱', title:'First entry', msg:'You showed up. That is everything.'},
+  {days:7, icon:'✦', title:'7 days of courage', msg:'One week of looking inward. Your light is gathering.'},
+  {days:21, icon:'🌕', title:'21 days of light', msg:'You have built a sacred rhythm. Trust it.'},
+  {days:30, icon:'🔥', title:'30 days of devotion', msg:'A full moon of healing work. Your soul knows.'},
+  {days:66, icon:'💫', title:'A habit becomes a way of being', msg:'This practice is now woven into you. You are the light.'}
+];
+
+/* =============== STATE =============== */
+const KEY = 'lumina_v1';
+let state = null;
+
+function defaultState(){
+  return {
+    profile: {
+      name: '',
+      journeyStartDate: today(),
+      avatarColor: '#7C5CBF',
+      currentStreak: 0,
+      longestStreak: 0,
+      lastJournalDate: null,
+      totalEntries: 0,
+      milestonesUnlocked: [],
+      intentions: [],
+      onboarded: false
+    },
+    entries: [],
+    affirmations: [
+      {id:'a_default', text:'I am worthy of love and healing.', isPinned:true, createdDate: today()}
+    ],
+    settings: {
+      theme: 'dark',
+      dailyReminderTime: null,
+      breathingDuration: 4,
+      currentPromptIndex: 0,
+      completedPromptIds: [],
+      fontSize: 'medium',
+      draft: null,
+      favoritePrompts: []
+    }
+  };
+}
+
+function loadState(){
+  try {
+    const raw = localStorage.getItem(KEY);
+    if(!raw) return defaultState();
+    const parsed = JSON.parse(raw);
+    const d = defaultState();
+    return {
+      profile: {...d.profile, ...parsed.profile},
+      entries: parsed.entries || [],
+      affirmations: parsed.affirmations || d.affirmations,
+      settings: {...d.settings, ...parsed.settings}
+    };
+  } catch(e){
+    return defaultState();
+  }
+}
+
+function saveState(){
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){}
+}
+
+function today(){
+  const d = new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+
+function daysBetween(a, b){
+  const da = new Date(a + 'T00:00:00');
+  const db = new Date(b + 'T00:00:00');
+  return Math.round((db - da) / 86400000);
+}
+
+/* =============== STAR FIELD =============== */
+function buildStars(){
+  const wrap = document.getElementById('starfield');
+  wrap.innerHTML = '';
+  const count = 50;
+  for(let i=0; i<count; i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() < 0.7 ? 1 : 2;
+    s.style.width = s.style.height = size + 'px';
+    s.style.left = Math.random()*100 + '%';
+    s.style.top = Math.random()*100 + '%';
+    s.style.setProperty('--dur', (3 + Math.random()*3) + 's');
+    s.style.setProperty('--delay', (Math.random()*4) + 's');
+    s.style.opacity = (0.15 + Math.random()*0.2);
+    wrap.appendChild(s);
+  }
+}
+
+/* =============== SCREEN MGMT =============== */
+let currentScreen = 'home';
+let journalContext = null; // {promptId, fromScreen}
+
+function show(name){
+  currentScreen = name;
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById('screen-' + name);
+  if(target) target.classList.add('active');
+
+  // Update nav (skip if going to journal/settings; both still tagged)
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const navBtn = document.querySelector(`.nav-btn[data-screen="${name}"]`);
+  if(navBtn){
+    navBtn.classList.add('active');
+    positionNavIndicator(navBtn);
+  }
+
+  // Render fresh data
+  if(name === 'home') renderHome();
+  if(name === 'prompts') renderPrompts();
+  if(name === 'journey') renderJourney();
+  if(name === 'affirmations') renderAffirmations();
+  if(name === 'innerchild') renderInnerChild();
+  if(name === 'settings') renderSettings();
+
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function positionNavIndicator(btn){
+  const ind = document.getElementById('nav-indicator');
+  if(!btn || !ind) return;
+  const r = btn.getBoundingClientRect();
+  const navR = document.getElementById('bottom-nav').getBoundingClientRect();
+  ind.style.left = (r.left - navR.left + (r.width-48)/2) + 'px';
+}
+
+/* =============== HOME =============== */
+function getTodaysPrompt(){
+  const idx = state.settings.currentPromptIndex % PROMPTS.length;
+  return PROMPTS[idx];
+}
+
+function renderHome(){
+  const p = getTodaysPrompt();
+  document.getElementById('todays-pill').textContent = CAT_NAMES[p.cat];
+  document.getElementById('todays-pill').className = 'pill ' + CAT_PILL[p.cat];
+  document.getElementById('todays-prompt-text').textContent = p.text;
+
+  // Bookmark state
+  const fav = state.settings.favoritePrompts || [];
+  document.getElementById('bookmark-today').classList.toggle('active', fav.includes(p.id));
+
+  // Streak / day count
+  const days = Math.max(1, daysBetween(state.profile.journeyStartDate, today()) + 1);
+  document.getElementById('candle-day').textContent = `Day ${days} of your healing journey`;
+  document.getElementById('streak-num').textContent = state.profile.currentStreak;
+  document.getElementById('avatar').textContent = (state.profile.name || 'L').charAt(0).toUpperCase();
+  document.getElementById('avatar').style.background = state.profile.avatarColor;
+
+  // Greeting
+  const greet = state.profile.name ? `Welcome back, ${state.profile.name}` : 'Welcome back, dear soul';
+  document.getElementById('greeting').textContent = greet;
+
+  // Mood check-in if not journaled today
+  const journaledToday = state.entries.some(e => e.date === today());
+  const mc = document.getElementById('mood-checkin');
+  if(!journaledToday){
+    mc.classList.remove('hidden');
+    buildMoodRow('home-mood-row', null, v => {
+      showToast(`Mood noted: ${MOODS[v-1].label}`);
+    });
+  } else {
+    mc.classList.add('hidden');
+  }
+
+  // Recent entries
+  const recent = state.entries.slice().sort((a,b)=>b.timestamp-a.timestamp).slice(0,3);
+  const re = document.getElementById('recent-entries');
+  if(!recent.length){
+    re.innerHTML = `
+      <div class="empty-state">
+        <svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="#9B7DD4" stroke-width="1.5">
+          <path d="M70 50 A20 20 0 1 1 50 30 A15 15 0 0 0 70 50z" fill="rgba(196,168,232,0.15)"/>
+        </svg>
+        <div class="empty-text">Your journey begins with a single word.</div>
+      </div>`;
+  } else {
+    re.innerHTML = recent.map(e => `
+      <div class="entry-mini" data-id="${e.id}" onclick="viewEntry('${e.id}')">
+        <div class="entry-mini-head">
+          <span class="pill ${CAT_PILL[e.promptCategory]}">${CAT_NAMES[e.promptCategory]}</span>
+          <span class="entry-mini-date">${formatDate(e.date)}</span>
+        </div>
+        <div class="entry-mini-text">${escapeHtml(e.response.substring(0,80))}${e.response.length>80?'...':''}</div>
+      </div>`).join('');
+    revealEntries();
+  }
+
+  // Daily affirmation (pinned)
+  const pinned = state.affirmations.find(a => a.isPinned);
+  document.getElementById('daily-affirm-text').textContent = pinned ? pinned.text : (state.affirmations[0]?.text || 'You are worthy.');
+}
+
+function refreshTodayPrompt(){
+  // animate fade
+  const card = document.getElementById('todays-prompt-card');
+  card.style.transition = 'opacity 250ms';
+  card.style.opacity = '0';
+  setTimeout(()=>{
+    state.settings.currentPromptIndex = (state.settings.currentPromptIndex + 1 + Math.floor(Math.random()*5)) % PROMPTS.length;
+    saveState();
+    renderHome();
+    card.style.opacity = '1';
+  }, 260);
+}
+
+function toggleFavToday(){
+  const p = getTodaysPrompt();
+  const fav = state.settings.favoritePrompts || [];
+  const i = fav.indexOf(p.id);
+  if(i >= 0) fav.splice(i,1);
+  else fav.push(p.id);
+  state.settings.favoritePrompts = fav;
+  saveState();
+  renderHome();
+}
+
+function revealEntries(){
+  const items = document.querySelectorAll('.entry-mini');
+  items.forEach((el, i) => {
+    setTimeout(() => el.classList.add('reveal'), 60 * i);
+  });
+}
+
+/* =============== MOOD ROW =============== */
+function buildMoodRow(containerId, selectedV, onSelect){
+  const c = document.getElementById(containerId);
+  if(!c) return;
+  c.innerHTML = '';
+  MOODS.forEach(m => {
+    const o = document.createElement('div');
+    o.className = 'mood-orb' + (selectedV === m.v ? ' selected' : '');
+    o.style.setProperty('--c-dark', m.c);
+    o.style.setProperty('--c-light', m.cl);
+    o.title = m.label;
+    o.innerHTML = `<div class="mood-tooltip">${m.label} · ${m.desc}</div>`;
+    o.addEventListener('click', () => {
+      c.querySelectorAll('.mood-orb').forEach(x => x.classList.remove('selected'));
+      o.classList.add('selected');
+      onSelect(m.v);
+    });
+    c.appendChild(o);
+  });
+}
+
+/* =============== PROMPTS SCREEN =============== */
+let currentCat = 'all';
+
+function renderPrompts(){
+  // Filter chips
+  document.querySelectorAll('#filter-row .filter-chip').forEach(c => {
+    c.onclick = () => {
+      currentCat = c.dataset.cat;
+      document.querySelectorAll('#filter-row .filter-chip').forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      renderPrompts();
+    };
+    c.classList.toggle('active', c.dataset.cat === currentCat);
+  });
+
+  const search = (document.getElementById('prompt-search').value || '').toLowerCase();
+  const completed = new Set(state.settings.completedPromptIds || []);
+  const fav = new Set(state.settings.favoritePrompts || []);
+
+  // Progress
+  const total = PROMPTS.length;
+  const done = completed.size;
+  document.getElementById('progress-text').textContent = `${done} of ${total} prompts explored`;
+  document.getElementById('progress-pct').textContent = Math.round(done/total*100) + '%';
+  setTimeout(() => {
+    document.getElementById('progress-fill').style.width = (done/total*100) + '%';
+  }, 50);
+
+  // Cards
+  const grid = document.getElementById('prompt-grid');
+  grid.innerHTML = '';
+  const filtered = PROMPTS.filter(p => {
+    if(currentCat !== 'all' && p.cat !== currentCat) return false;
+    if(search && !p.text.toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  if(!filtered.length){
+    grid.innerHTML = `
+      <div class="empty-state">
+        <svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="#9B7DD4" stroke-width="1.5">
+          <path d="M20 25 L20 75 L50 80 L80 75 L80 25 L50 30 Z" fill="rgba(124,92,191,0.1)"/>
+          <line x1="50" y1="30" x2="50" y2="80"/>
+        </svg>
+        <div class="empty-text">No prompts found. Try another search.</div>
+      </div>`;
+    return;
+  }
+
+  filtered.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'prompt-card' + (completed.has(p.id) ? ' completed' : '');
+    card.innerHTML = `
+      <span class="pill ${CAT_PILL[p.cat]}">${CAT_NAMES[p.cat]}</span>
+      <div class="prompt-card-text">${escapeHtml(p.text)}</div>
+      <div class="prompt-card-foot">
+        <button class="btn" style="padding:8px 18px;font-size:13px;" onclick="event.stopPropagation(); openJournalForPrompt('${p.id}')">Write</button>
+        <button class="btn-icon ${fav.has(p.id) ? 'active' : ''}" onclick="event.stopPropagation(); toggleFav('${p.id}')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="${fav.has(p.id) ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5l-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+function toggleFav(id){
+  const fav = state.settings.favoritePrompts || [];
+  const i = fav.indexOf(id);
+  if(i >= 0) fav.splice(i,1);
+  else fav.push(id);
+  state.settings.favoritePrompts = fav;
+  saveState();
+  renderPrompts();
+}
+
+/* =============== JOURNAL =============== */
+let journalState = null;
+
+function openJournalForPrompt(promptId){
+  const prompt = PROMPTS.find(p => p.id === promptId);
+  if(!prompt) return;
+  journalContext = {promptId, fromScreen: currentScreen};
+  journalState = {
+    promptId,
+    moodBefore: null,
+    moodAfter: null,
+    tags: [],
+    startTime: Date.now()
+  };
+  document.getElementById('journal-pill').textContent = CAT_NAMES[prompt.cat];
+  document.getElementById('journal-pill').className = 'pill ' + CAT_PILL[prompt.cat];
+  document.getElementById('journal-date').textContent = formatDate(today());
+  document.getElementById('journal-prompt-text').textContent = prompt.text;
+  document.getElementById('writing-textarea').value = '';
+  document.getElementById('writing-textarea').disabled = true;
+  document.getElementById('word-count').textContent = '0';
+  document.getElementById('mood-after-section').classList.add('hidden');
+
+  // Build mood rows
+  buildMoodRow('journal-mood-before', null, v => {
+    journalState.moodBefore = v;
+    document.getElementById('writing-textarea').disabled = false;
+    document.getElementById('writing-textarea').focus();
+  });
+  buildMoodRow('journal-mood-after', null, v => { journalState.moodAfter = v; });
+
+  // Tags
+  buildTagRow(prompt.cat);
+
+  // Check for draft
+  if(state.settings.draft && state.settings.draft.promptId === promptId){
+    if(confirm('You have an unsaved draft for this prompt. Restore it?')){
+      document.getElementById('writing-textarea').value = state.settings.draft.text;
+      journalState.moodBefore = state.settings.draft.moodBefore;
+      journalState.tags = state.settings.draft.tags || [];
+      if(journalState.moodBefore){
+        const orb = document.querySelectorAll('#journal-mood-before .mood-orb')[journalState.moodBefore-1];
+        if(orb) orb.classList.add('selected');
+        document.getElementById('writing-textarea').disabled = false;
+      }
+      updateWordCount();
+    } else {
+      state.settings.draft = null;
+      saveState();
+    }
+  }
+
+  show('journal');
+}
+
+function startJournalForToday(){
+  const p = getTodaysPrompt();
+  openJournalForPrompt(p.id);
+}
+
+function goBackFromJournal(){
+  // Save draft if any text
+  const text = document.getElementById('writing-textarea').value.trim();
+  if(text.length > 5){
+    state.settings.draft = {
+      promptId: journalState.promptId,
+      text,
+      moodBefore: journalState.moodBefore,
+      tags: journalState.tags
+    };
+    saveState();
+    showToast('Draft saved');
+  }
+  show(journalContext?.fromScreen || 'home');
+}
+
+function buildTagRow(cat){
+  const row = document.getElementById('tag-row');
+  row.innerHTML = '';
+  const tags = SUGGESTED_TAGS[cat] || [];
+  tags.forEach(t => {
+    const chip = document.createElement('div');
+    chip.className = 'tag-chip' + (journalState.tags.includes(t) ? ' selected' : '');
+    chip.textContent = t;
+    chip.onclick = () => {
+      const i = journalState.tags.indexOf(t);
+      if(i >= 0) journalState.tags.splice(i,1);
+      else if(journalState.tags.length < 5) journalState.tags.push(t);
+      chip.classList.toggle('selected');
+    };
+    row.appendChild(chip);
+  });
+}
+
+/* Auto-save draft, word count, ripple, mood-after */
+let autosaveTimer = null;
+function setupWritingArea(){
+  const ta = document.getElementById('writing-textarea');
+  if(!ta) return;
+  ta.addEventListener('focus', () => {
+    const r = document.getElementById('ripple');
+    r.classList.remove('fire');
+    void r.offsetWidth;
+    r.classList.add('fire');
+  });
+  ta.addEventListener('input', () => {
+    updateWordCount();
+    clearTimeout(autosaveTimer);
+    document.getElementById('autosave').classList.remove('show');
+    autosaveTimer = setTimeout(() => {
+      saveDraft();
+      const a = document.getElementById('autosave');
+      a.classList.add('show');
+      setTimeout(() => a.classList.remove('show'), 1500);
+    }, 1000);
+  });
+}
+
+function updateWordCount(){
+  const ta = document.getElementById('writing-textarea');
+  const wc = ta.value.trim().split(/\s+/).filter(Boolean).length;
+  document.getElementById('word-count').textContent = wc;
+  if(wc >= 50){
+    document.getElementById('mood-after-section').classList.remove('hidden');
+  }
+}
+
+function saveDraft(){
+  if(!journalState) return;
+  const text = document.getElementById('writing-textarea').value;
+  if(text.trim().length > 0){
+    state.settings.draft = {
+      promptId: journalState.promptId,
+      text,
+      moodBefore: journalState.moodBefore,
+      tags: journalState.tags
+    };
+    saveState();
+  }
+}
+
+setInterval(() => {
+  if(currentScreen === 'journal') saveDraft();
+}, 30000);
+
+/* Save entry */
+function saveEntry(){
+  const ta = document.getElementById('writing-textarea');
+  const text = ta.value.trim();
+  if(!text){ showToast('Write something first ✦'); return; }
+  if(!journalState.moodBefore){ showToast('Select your mood before writing'); return; }
+  if(!journalState.moodAfter && text.split(/\s+/).length >= 50){
+    if(!confirm('You haven\'t selected your mood after writing. Save anyway?')) return;
+  }
+
+  const prompt = PROMPTS.find(p => p.id === journalState.promptId);
+  const duration = Math.round((Date.now() - journalState.startTime) / 60000);
+
+  const entry = {
+    id: 'e_' + Date.now(),
+    date: today(),
+    timestamp: Date.now(),
+    promptId: prompt.id,
+    promptText: prompt.text,
+    promptCategory: prompt.cat,
+    response: text,
+    moodBefore: journalState.moodBefore,
+    moodAfter: journalState.moodAfter || journalState.moodBefore,
+    tags: journalState.tags.slice(),
+    isFavorite: false,
+    durationMinutes: duration
+  };
+  state.entries.push(entry);
+  state.profile.totalEntries = state.entries.length;
+  if(!state.settings.completedPromptIds.includes(prompt.id)){
+    state.settings.completedPromptIds.push(prompt.id);
+  }
+  state.settings.draft = null;
+  updateStreak();
+  saveState();
+
+  // Sparkle burst
+  sparkleBurst(document.getElementById('save-btn'));
+
+  setTimeout(() => {
+    showToast('Entry saved. You did something brave today. ✦');
+    showReflection(entry);
+    checkMilestone();
+  }, 300);
+}
+
+function sparkleBurst(btn){
+  const r = btn.getBoundingClientRect();
+  const cx = r.left + r.width/2;
+  const cy = r.top + r.height/2;
+  for(let i=0; i<6; i++){
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.innerHTML = '✦';
+    s.style.fontSize = (12 + Math.random()*6) + 'px';
+    s.style.position = 'fixed';
+    s.style.left = cx + 'px';
+    s.style.top = cy + 'px';
+    s.style.zIndex = '900';
+    const angle = (i / 6) * Math.PI * 2;
+    s.style.setProperty('--dx', Math.cos(angle)*60 + 'px');
+    s.style.setProperty('--dy', Math.sin(angle)*60 + 'px');
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 600);
+  }
+}
+
+function showReflection(entry){
+  const r = document.getElementById('reflection');
+  const before = MOODS[entry.moodBefore-1];
+  const after = MOODS[entry.moodAfter-1];
+  const cmp = document.getElementById('mood-compare');
+  cmp.innerHTML = `
+    <div class="mood-compare-orb" style="--c-dark:${before.c};--c-light:${before.cl};"></div>
+    <div class="mood-arrow">→</div>
+    <div class="mood-compare-orb" style="--c-dark:${after.c};--c-light:${after.cl};"></div>
+  `;
+  const diff = entry.moodAfter - entry.moodBefore;
+  const msg = document.getElementById('reflection-msg');
+  if(diff > 0) msg.textContent = `Your light grew today. +${diff}`;
+  else msg.textContent = 'Some days we just show up. That is enough.';
+  r.classList.add('show');
+  setTimeout(() => closeReflection(), 2500);
+}
+
+function closeReflection(){
+  document.getElementById('reflection').classList.remove('show');
+  show('home');
+}
+
+/* =============== STREAK & MILESTONES =============== */
+function updateStreak(){
+  const last = state.profile.lastJournalDate;
+  const t = today();
+  if(!last){
+    state.profile.currentStreak = 1;
+  } else if(last === t){
+    // already counted
+  } else {
+    const diff = daysBetween(last, t);
+    if(diff === 1) state.profile.currentStreak += 1;
+    else if(diff > 1) state.profile.currentStreak = 1;
+  }
+  state.profile.lastJournalDate = t;
+  if(state.profile.currentStreak > state.profile.longestStreak){
+    state.profile.longestStreak = state.profile.currentStreak;
+  }
+}
+
+function checkStreakOnLoad(){
+  const last = state.profile.lastJournalDate;
+  if(!last) return;
+  const diff = daysBetween(last, today());
+  if(diff > 1) state.profile.currentStreak = 0;
+  saveState();
+}
+
+function checkMilestone(){
+  const streak = state.profile.currentStreak;
+  const total = state.profile.totalEntries;
+  const unlocked = state.profile.milestonesUnlocked;
+  MILESTONES.forEach(m => {
+    const key = 'm_' + m.days;
+    if(unlocked.includes(key)) return;
+    const cond = (m.days === 1 && total >= 1) || (streak >= m.days);
+    if(cond){
+      unlocked.push(key);
+      saveState();
+      setTimeout(() => showCelebration(m), 1200);
+    }
+  });
+}
+
+function showCelebration(m){
+  document.getElementById('celebration-badge').textContent = m.icon;
+  document.getElementById('celebration-title').textContent = m.title;
+  document.getElementById('celebration-msg').textContent = m.msg;
+  const parts = document.getElementById('celebration-particles');
+  parts.innerHTML = '';
+  for(let i=0; i<24; i++){
+    const p = document.createElement('div');
+    p.className = 'celebration-particle';
+    p.style.left = Math.random()*100 + '%';
+    p.style.bottom = '0';
+    p.style.background = ['#E8C4A0','#C4A8E8','#9B7DD4'][i%3];
+    p.style.setProperty('--dur', (3 + Math.random()*4) + 's');
+    p.style.animationDelay = (Math.random()*2) + 's';
+    parts.appendChild(p);
+  }
+  document.getElementById('celebration').classList.add('show');
+  setTimeout(closeCelebration, 6000);
+}
+
+function closeCelebration(){
+  document.getElementById('celebration').classList.remove('show');
+}
+
+/* =============== INNER CHILD =============== */
+let currentAge = 4;
+function renderInnerChild(){
+  document.getElementById('letter-name').textContent = currentAge;
+  document.getElementById('letter-signer').textContent = state.profile.name || 'me';
+  document.querySelectorAll('#age-row .age-chip').forEach(c => {
+    c.classList.toggle('selected', parseInt(c.dataset.age) === currentAge);
+    c.onclick = () => {
+      currentAge = parseInt(c.dataset.age);
+      renderInnerChild();
+    };
+  });
+  // List letters
+  const letters = state.entries.filter(e => e.promptCategory === 'letter')
+    .sort((a,b)=>b.timestamp-a.timestamp);
+  const list = document.getElementById('letter-list');
+  if(!letters.length){
+    list.innerHTML = `
+      <div class="empty-state">
+        <svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="#9B7DD4" stroke-width="1.5">
+          <path d="M50 30 L50 70 M30 50 L70 50" stroke-width="1"/>
+          <circle cx="50" cy="50" r="25"/>
+        </svg>
+        <div class="empty-text">Your first letter awaits.</div>
+      </div>`;
+  } else {
+    list.innerHTML = letters.map(l => `
+      <div class="letter-view" onclick="viewEntry('${l.id}')" style="cursor:pointer;">
+        <div class="letter-date">${formatDate(l.date)} · to age ${l.tags[0] || '?'}</div>
+        ${escapeHtml(l.response.substring(0,160))}${l.response.length>160?'...':''}
+      </div>`).join('');
+  }
+}
+
+function saveLetter(){
+  const ta = document.getElementById('letter-textarea');
+  const text = ta.value.trim();
+  if(!text){ showToast('Write something to her first ✦'); return; }
+  const entry = {
+    id: 'e_' + Date.now(),
+    date: today(),
+    timestamp: Date.now(),
+    promptId: 'letter_' + currentAge,
+    promptText: `A letter to little me at age ${currentAge}`,
+    promptCategory: 'letter',
+    response: text,
+    moodBefore: 4,
+    moodAfter: 6,
+    tags: [String(currentAge)],
+    isFavorite: false,
+    durationMinutes: 0
+  };
+  state.entries.push(entry);
+  state.profile.totalEntries = state.entries.length;
+  updateStreak();
+  saveState();
+  ta.value = '';
+  showToast('Letter sealed with love ✦');
+  setTimeout(() => renderInnerChild(), 200);
+  checkMilestone();
+}
+
+/* =============== JOURNEY =============== */
+function renderJourney(){
+  const days = Math.max(1, daysBetween(state.profile.journeyStartDate, today()) + 1);
+  animateCount('stat-days', days);
+  animateCount('stat-entries', state.entries.length);
+  document.getElementById('stat-prompts').textContent = `${state.settings.completedPromptIds.length}/108`;
+  animateCount('stat-streak', state.profile.longestStreak);
+
+  drawTrendChart();
+  drawHeatmap();
+  renderMilestones();
+  renderThemes();
+
+  // Monthly reflection card
+  const t = new Date();
+  const monthlyKey = `monthly_${t.getFullYear()}_${t.getMonth()}`;
+  const hasReflected = state.entries.some(e => e.promptId === monthlyKey);
+  const card = document.getElementById('monthly-reflection-card');
+  if(t.getDate() <= 7 && !hasReflected){
+    card.style.display = 'block';
+  } else {
+    card.style.display = 'none';
+  }
+}
+
+function animateCount(id, target){
+  const el = document.getElementById(id);
+  if(!el) return;
+  let v = 0;
+  const step = Math.max(1, Math.round(target / 30));
+  const t = setInterval(() => {
+    v += step;
+    if(v >= target){ v = target; clearInterval(t); }
+    el.textContent = v;
+  }, 30);
+}
+
+function drawTrendChart(){
+  const svg = document.getElementById('trend-chart');
+  const W = 320, H = 160, P = 16;
+  const today_ = new Date(today() + 'T00:00:00');
+  const days = [];
+  for(let i = 13; i >= 0; i--){
+    const d = new Date(today_); d.setDate(today_.getDate() - i);
+    const ds = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    const dayEntries = state.entries.filter(e => e.date === ds);
+    let mb = null, ma = null;
+    if(dayEntries.length){
+      mb = dayEntries.reduce((s,e) => s+e.moodBefore, 0)/dayEntries.length;
+      ma = dayEntries.reduce((s,e) => s+e.moodAfter, 0)/dayEntries.length;
+    }
+    days.push({mb, ma});
+  }
+  const xStep = (W - 2*P) / 13;
+  const yScale = v => H - P - ((v-1)/6) * (H - 2*P);
+
+  let beforePath = '', afterPath = '';
+  let bStart = false, aStart = false;
+  days.forEach((d,i) => {
+    const x = P + i*xStep;
+    if(d.mb !== null){
+      beforePath += (bStart ? ' L' : 'M') + x + ',' + yScale(d.mb);
+      bStart = true;
+    }
+    if(d.ma !== null){
+      afterPath += (aStart ? ' L' : 'M') + x + ',' + yScale(d.ma);
+      aStart = true;
+    }
+  });
+
+  // Grid lines
+  let grid = '';
+  for(let v=1; v<=7; v+=2){
+    const y = yScale(v);
+    grid += `<line x1="${P}" y1="${y}" x2="${W-P}" y2="${y}" stroke="rgba(124,92,191,0.1)" stroke-width="1"/>`;
+  }
+
+  svg.innerHTML = grid +
+    `<path d="${beforePath}" fill="none" stroke="#6B5F85" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>` +
+    `<path d="${afterPath}" fill="none" stroke="#E8C4A0" stroke-width="2.5" stroke-linecap="round" style="filter:drop-shadow(0 0 8px rgba(232,196,160,0.3));"/>`;
+
+  // Animate stroke draw
+  const paths = svg.querySelectorAll('path');
+  paths.forEach(p => {
+    const len = p.getTotalLength ? p.getTotalLength() : 500;
+    p.style.strokeDasharray = p.getAttribute('stroke-dasharray') || len;
+    if(!p.getAttribute('stroke-dasharray') || p.getAttribute('stroke-dasharray') === '4 4'){
+      p.style.strokeDashoffset = len;
+      requestAnimationFrame(() => {
+        p.style.transition = 'stroke-dashoffset 1200ms ease-out';
+        p.style.strokeDashoffset = '0';
+      });
+    }
+  });
+}
+
+function drawHeatmap(){
+  const grid = document.getElementById('heatmap');
+  grid.innerHTML = '';
+  const today_ = new Date(today() + 'T00:00:00');
+  const start = new Date(today_); start.setDate(today_.getDate() - 27); // 28 days
+  for(let i = 0; i < 28; i++){
+    const d = new Date(start); d.setDate(start.getDate() + i);
+    const ds = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    const entries = state.entries.filter(e => e.date === ds);
+    const cell = document.createElement('div');
+    cell.className = 'heat-cell';
+    if(entries.length){
+      const avg = entries.reduce((s,e) => s+e.moodAfter, 0)/entries.length;
+      const m = MOODS[Math.round(avg)-1];
+      cell.style.background = m.c;
+      cell.style.opacity = '0.85';
+      cell.innerHTML = `<div class="heat-cell-tip">${ds} · ${m.label}</div>`;
+    } else {
+      cell.innerHTML = `<div class="heat-cell-tip">${ds}</div>`;
+    }
+    grid.appendChild(cell);
+  }
+}
+
+function renderMilestones(){
+  const list = document.getElementById('milestone-list');
+  const unlocked = state.profile.milestonesUnlocked;
+  list.innerHTML = MILESTONES.map(m => {
+    const isUnlocked = unlocked.includes('m_' + m.days);
+    return `
+      <div class="milestone ${isUnlocked ? 'unlocked' : ''}">
+        <div class="milestone-icon">${m.icon}</div>
+        <div>
+          <div class="milestone-title">${m.title}</div>
+          <div class="milestone-sub">${m.days === 1 ? 'First step' : m.days + '-day streak'}</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderThemes(){
+  const tags = {};
+  state.entries.forEach(e => (e.tags || []).forEach(t => tags[t] = (tags[t]||0)+1));
+  const sorted = Object.entries(tags).sort((a,b)=>b[1]-a[1]).slice(0,8);
+  const cloud = document.getElementById('tag-cloud');
+  cloud.innerHTML = sorted.map(([t,c]) => `<span class="tag-cloud-item">${t} · ${c}</span>`).join('');
+
+  // Summary
+  const cats = {};
+  state.entries.forEach(e => cats[e.promptCategory] = (cats[e.promptCategory]||0)+1);
+  const topCat = Object.entries(cats).sort((a,b)=>b[1]-a[1])[0];
+  const sum = document.getElementById('theme-summary');
+  if(state.entries.length === 0){
+    sum.textContent = 'Your themes will emerge as you write.';
+  } else {
+    const moodDiffs = state.entries.map(e => e.moodAfter - e.moodBefore);
+    const avgDiff = moodDiffs.reduce((s,v)=>s+v,0)/moodDiffs.length;
+    const catName = topCat ? CAT_NAMES[topCat[0]] || topCat[0] : '—';
+    sum.innerHTML = `Most written category: <strong style="color:var(--gold);">${catName}</strong><br>Avg mood lift per session: <strong style="color:var(--gold);">+${avgDiff.toFixed(1)}</strong>`;
+  }
+}
+
+function startMonthlyReflection(){
+  const t = new Date();
+  const monthName = ['January','February','March','April','May','June','July','August','September','October','November','December'][t.getMonth()];
+  const monthlyKey = `monthly_${t.getFullYear()}_${t.getMonth()}`;
+  journalContext = {promptId: monthlyKey, fromScreen: 'journey'};
+  journalState = {promptId: monthlyKey, moodBefore: null, moodAfter: null, tags: ['reflection'], startTime: Date.now()};
+  document.getElementById('journal-pill').textContent = 'Reflection';
+  document.getElementById('journal-pill').className = 'pill pill-sl';
+  document.getElementById('journal-date').textContent = formatDate(today());
+  document.getElementById('journal-prompt-text').textContent = `A new month begins. How did ${monthName} feel?`;
+  document.getElementById('writing-textarea').value = '';
+  document.getElementById('writing-textarea').disabled = true;
+  document.getElementById('word-count').textContent = '0';
+  document.getElementById('mood-after-section').classList.add('hidden');
+  buildMoodRow('journal-mood-before', null, v => {
+    journalState.moodBefore = v;
+    document.getElementById('writing-textarea').disabled = false;
+    document.getElementById('writing-textarea').focus();
+  });
+  buildMoodRow('journal-mood-after', null, v => { journalState.moodAfter = v; });
+  document.getElementById('tag-row').innerHTML = '';
+  show('journal');
+}
+
+/* =============== AFFIRMATIONS =============== */
+function renderAffirmations(){
+  const pinned = state.affirmations.find(a => a.isPinned);
+  document.getElementById('affirm-feature').textContent = pinned ? pinned.text : (state.affirmations[0]?.text || 'Write your first word of love.');
+
+  const sorted = state.affirmations.slice().sort((a,b) => (b.isPinned?1:0)-(a.isPinned?1:0));
+  const list = document.getElementById('affirm-list');
+  if(!sorted.length){
+    list.innerHTML = `
+      <div class="empty-state">
+        <svg width="80" height="80" viewBox="0 0 100 100" fill="none" stroke="#E8C4A0" stroke-width="1.5">
+          <path d="M70 50 A20 20 0 1 1 50 30 A15 15 0 0 0 70 50z" fill="rgba(232,196,160,0.15)"/>
+          <circle cx="20" cy="20" r="2" fill="#E8C4A0"/>
+          <circle cx="80" cy="20" r="2" fill="#E8C4A0"/>
+        </svg>
+        <div class="empty-text">Write a word of love to yourself.</div>
+      </div>`;
+  } else {
+    list.innerHTML = sorted.map(a => `
+      <div class="affirm-item ${a.isPinned ? 'pinned' : ''}">
+        <div class="affirm-text">${escapeHtml(a.text)}</div>
+        <div class="affirm-actions">
+          <button class="btn-icon ${a.isPinned ? 'active' : ''}" onclick="togglePin('${a.id}')" title="Pin">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="${a.isPinned ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M12 17l-1 5h2zM12 2L9 9H4l4 3l-1 6l5-4l5 4l-1-6l4-3h-5z"/></svg>
+          </button>
+          <button class="btn-icon" onclick="deleteAffirm('${a.id}')" title="Delete">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+          </button>
+        </div>
+      </div>`).join('');
+  }
+
+  // Suggested
+  const sug = document.getElementById('suggested-content');
+  sug.innerHTML = SUGGESTED_AFFIRMATIONS.map(g => `
+    <div class="suggest-group">
+      <h4>${g.theme}</h4>
+      ${g.items.map(t => `<div class="suggest-item" onclick="addSuggested('${escapeHtml(t).replace(/'/g, "&#39;")}')">${escapeHtml(t)}</div>`).join('')}
+    </div>`).join('');
+}
+
+function addAffirmation(ev){
+  const input = document.getElementById('affirm-input');
+  const text = input.value.trim();
+  if(!text) return;
+  state.affirmations.push({
+    id: 'a_' + Date.now(),
+    text,
+    isPinned: false,
+    createdDate: today()
+  });
+  saveState();
+  input.value = '';
+  heartBurst(ev.target);
+  renderAffirmations();
+}
+
+function addSuggested(text){
+  // unescape
+  const decoded = new DOMParser().parseFromString(text, 'text/html').body.textContent;
+  state.affirmations.push({
+    id: 'a_' + Date.now(),
+    text: decoded,
+    isPinned: false,
+    createdDate: today()
+  });
+  saveState();
+  showToast('Added to your affirmations ✦');
+  renderAffirmations();
+}
+
+function togglePin(id){
+  const a = state.affirmations.find(x => x.id === id);
+  if(!a) return;
+  if(!a.isPinned){
+    // unpin others
+    state.affirmations.forEach(x => x.isPinned = false);
+    a.isPinned = true;
+    heartBurst(event.target);
+  } else {
+    a.isPinned = false;
+  }
+  saveState();
+  renderAffirmations();
+}
+
+function deleteAffirm(id){
+  if(!confirm('Release this affirmation?')) return;
+  state.affirmations = state.affirmations.filter(a => a.id !== id);
+  saveState();
+  renderAffirmations();
+}
+
+function heartBurst(el){
+  const r = el.getBoundingClientRect();
+  const cx = r.left + r.width/2;
+  const cy = r.top + r.height/2;
+  for(let i=0; i<8; i++){
+    const h = document.createElement('div');
+    h.className = 'heart-particle';
+    h.innerHTML = '♡';
+    h.style.position = 'fixed';
+    h.style.left = cx + 'px';
+    h.style.top = cy + 'px';
+    h.style.fontSize = '14px';
+    h.style.zIndex = '900';
+    const a = (i/8)*Math.PI*2;
+    h.style.setProperty('--dx', Math.cos(a)*40 + 'px');
+    h.style.setProperty('--dy', Math.sin(a)*40 - 20 + 'px');
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 500);
+  }
+}
+
+/* =============== SETTINGS =============== */
+function renderSettings(){
+  document.getElementById('set-name').value = state.profile.name || '';
+  document.getElementById('set-start-date').value = state.profile.journeyStartDate;
+  document.getElementById('set-font').value = state.settings.fontSize;
+  document.getElementById('set-reminder').value = state.settings.dailyReminderTime || '';
+  document.getElementById('set-breath').value = state.settings.breathingDuration;
+  document.querySelectorAll('#color-picker .color-swatch').forEach(s => {
+    s.classList.toggle('selected', s.dataset.c === state.profile.avatarColor);
+    s.onclick = () => {
+      state.profile.avatarColor = s.dataset.c;
+      saveState();
+      renderSettings();
+      renderHome();
+    };
+  });
+}
+
+function updateName(v){ state.profile.name = v; saveState(); }
+function updateStartDate(v){ state.profile.journeyStartDate = v; saveState(); }
+function updateFontSize(v){
+  state.settings.fontSize = v;
+  applyBodyClasses();
+  saveState();
+}
+function updateReminder(v){ state.settings.dailyReminderTime = v; saveState(); }
+function updateBreath(v){ state.settings.breathingDuration = parseInt(v); saveState(); }
+
+function applyBodyClasses(){
+  const fs = state.settings.fontSize || 'medium';
+  const theme = state.settings.theme || 'dark';
+  document.body.className = 'font-' + fs + ' theme-' + theme;
+}
+
+function toggleTheme(){
+  state.settings.theme = (state.settings.theme === 'light') ? 'dark' : 'light';
+  applyBodyClasses();
+  saveState();
+  showToast(state.settings.theme === 'light' ? 'Light mode ✦' : 'Dark mode ☾');
+}
+
+function exportData(){
+  const blob = new Blob([JSON.stringify(state, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `lumina_journal_${today()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Exported your journey ✦');
+}
+
+function importData(ev){
+  const f = ev.target.files[0];
+  if(!f) return;
+  const r = new FileReader();
+  r.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if(!data.profile || !data.entries){ throw new Error('Invalid file'); }
+      if(confirm('Replace your current journey with this imported one?')){
+        state = data;
+        saveState();
+        showToast('Journey restored ✦');
+        renderSettings();
+        show('home');
+      }
+    } catch(err){
+      alert('Could not read file: ' + err.message);
+    }
+  };
+  r.readAsText(f);
+}
+
+function exportPdf(){
+  showToast('Opening print view...');
+  setTimeout(() => window.print(), 400);
+}
+
+function confirmClearData(){
+  if(!confirm('This will erase your entire journey. This cannot be undone. Continue?')) return;
+  if(!confirm('Are you absolutely sure? All entries, affirmations, and progress will be gone.')) return;
+  localStorage.removeItem(KEY);
+  state = defaultState();
+  saveState();
+  state.profile.onboarded = false;
+  saveState();
+  location.reload();
+}
+
+/* =============== ENTRY VIEW =============== */
+function viewEntry(id){
+  const e = state.entries.find(x => x.id === id);
+  if(!e) return;
+  const msg = `${formatDate(e.date)}\n\n${e.promptText}\n\n${e.response}`;
+  alert(msg);
+}
+
+/* =============== BREATHING =============== */
+function openBreathing(){
+  const dur = state.settings.breathingDuration || 4;
+  const c = document.getElementById('breathing-circle');
+  c.style.animationDuration = (dur*2) + 's';
+  document.getElementById('breathing-modal').classList.add('show');
+  // Cycle text
+  let phase = 0;
+  const phases = ['Inhale...', 'Hold...', 'Exhale...', 'Rest...'];
+  const t = setInterval(() => {
+    phase = (phase + 1) % phases.length;
+    document.getElementById('breathing-text').textContent = phases[phase];
+  }, dur*1000);
+  document.getElementById('breathing-modal').dataset.timer = t;
+}
+
+function closeBreathing(){
+  const m = document.getElementById('breathing-modal');
+  m.classList.remove('show');
+  if(m.dataset.timer) clearInterval(parseInt(m.dataset.timer));
+}
+
+/* =============== TOAST =============== */
+let toastTimer = null;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  if(toastTimer){ clearTimeout(toastTimer); toastTimer = null; }
+  t.textContent = msg;
+  t.classList.remove('show');
+  void t.offsetWidth;
+  t.classList.add('show');
+  toastTimer = setTimeout(() => {
+    t.classList.remove('show');
+    toastTimer = null;
+  }, 2200);
+}
+
+/* =============== UTILITIES =============== */
+function escapeHtml(s){
+  if(!s) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function formatDate(d){
+  const dt = new Date(d + 'T00:00:00');
+  return dt.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+}
+
+/* =============== ONBOARDING =============== */
+let onbStep = 1;
+let onbIntentions = [];
+
+function onbNext(skip){
+  onbStep++;
+  document.querySelectorAll('.onb-step').forEach(s => s.classList.remove('active'));
+  const next = document.getElementById('onb-' + onbStep);
+  if(next) next.classList.add('active');
+  if(onbStep === 4){
+    document.getElementById('onb-first-prompt').textContent = PROMPTS.find(p => p.id === 'ic_001').text;
+  }
+}
+
+function onbSaveName(){
+  const n = document.getElementById('onb-name').value.trim();
+  state.profile.name = n;
+  saveState();
+  onbNext();
+}
+
+function onbFinish(action){
+  // Intentions selection
+  document.querySelectorAll('#onb-intentions .intention-card.selected').forEach(c => {
+    onbIntentions.push(c.dataset.int);
+  });
+  state.profile.intentions = onbIntentions;
+  state.profile.onboarded = true;
+  state.profile.journeyStartDate = today();
+  saveState();
+  document.getElementById('onboarding').classList.remove('show');
+  document.getElementById('app').style.display = 'block';
+  if(action === 'write'){
+    openJournalForPrompt('ic_001');
+  } else {
+    show('home');
+  }
+}
+
+function setupOnboarding(){
+  // Intention card multi-select
+  document.querySelectorAll('#onb-intentions .intention-card').forEach(c => {
+    c.onclick = () => c.classList.toggle('selected');
+  });
+}
+
+/* =============== INIT =============== */
+function init(){
+  state = loadState();
+  applyBodyClasses();
+  buildStars();
+  setupOnboarding();
+  setupWritingArea();
+
+  if(!state.profile.onboarded){
+    document.getElementById('onboarding').classList.add('show');
+    document.getElementById('app').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('onboarding').classList.remove('show');
+  document.getElementById('app').style.display = 'block';
+  checkStreakOnLoad();
+  show('home');
+
+  // Position nav indicator initially
+  setTimeout(() => {
+    const active = document.querySelector('.nav-btn.active');
+    if(active) positionNavIndicator(active);
+  }, 100);
+
+  // IntersectionObserver for entry fade-in on scroll
+  if('IntersectionObserver' in window){
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e,i) => {
+        if(e.isIntersecting){
+          setTimeout(() => e.target.classList.add('reveal'), 60 * i);
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.1});
+    setInterval(() => {
+      document.querySelectorAll('.entry-mini:not(.reveal)').forEach(el => obs.observe(el));
+    }, 500);
+  }
+
+  // Restore draft prompt on next load
+  if(state.settings.draft && state.settings.draft.text){
+    setTimeout(() => {
+      if(confirm('You have an unsaved draft from your last session. Continue writing?')){
+        openJournalForPrompt(state.settings.draft.promptId);
+      } else {
+        state.settings.draft = null;
+        saveState();
+      }
+    }, 500);
+  }
+}
+
+window.addEventListener('resize', () => {
+  const active = document.querySelector('.nav-btn.active');
+  if(active) positionNavIndicator(active);
+});
+
+/* =============== PWA / INSTALL =============== */
+let deferredInstall = null;
+
+if('serviceWorker' in navigator && location.protocol !== 'file:'){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(err => {
+      console.warn('Service worker registration failed:', err);
+    });
+  });
+}
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredInstall = e;
+  updateInstallCard();
+});
+
+window.addEventListener('appinstalled', () => {
+  deferredInstall = null;
+  updateInstallCard();
+  showToast('Lumina is yours now ✦');
+});
+
+function isStandalone(){
+  return window.matchMedia('(display-mode: standalone)').matches ||
+         window.matchMedia('(display-mode: fullscreen)').matches ||
+         window.navigator.standalone === true;
+}
+
+function isiOS(){
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+
+function updateInstallCard(){
+  const card = document.getElementById('install-card');
+  const btn = document.getElementById('install-btn');
+  const text = document.getElementById('install-text');
+  if(!card) return;
+
+  if(isStandalone()){
+    card.style.display = 'none';
+    return;
+  }
+
+  if(deferredInstall){
+    card.style.display = 'block';
+    btn.style.display = 'inline-flex';
+    btn.textContent = 'Install Lumina ✦';
+    text.textContent = 'Keep Lumina close. Install it to your device for a quiet, app-like experience that works offline.';
+  } else if(isiOS()){
+    card.style.display = 'block';
+    btn.style.display = 'none';
+    text.innerHTML = 'To install on iOS: tap the <strong>Share</strong> button in Safari, then choose <strong>Add to Home Screen</strong>.';
+  } else {
+    card.style.display = 'block';
+    btn.style.display = 'none';
+    text.innerHTML = 'Look for the <strong>Install</strong> icon in your browser\'s address bar, or open the browser menu and choose <strong>Install Lumina</strong> or <strong>Add to Home Screen</strong>.';
+  }
+}
+
+function installApp(){
+  if(deferredInstall){
+    deferredInstall.prompt();
+    deferredInstall.userChoice.then(choice => {
+      if(choice.outcome === 'accepted') showToast('Welcome home ✦');
+      deferredInstall = null;
+      updateInstallCard();
+    });
+  }
+}
+
+// Patch settings render to refresh install card
+const _renderSettings = renderSettings;
+renderSettings = function(){
+  _renderSettings();
+  updateInstallCard();
+};
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
