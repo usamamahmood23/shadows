@@ -3,14 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#0F0A1A" media="(prefers-color-scheme: dark)" />
-<meta name="theme-color" content="#F8F4FB" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#F8F4FB" />
 <meta name="description" content="A private sacred space for shadow work and inner healing." />
 <link rel="manifest" href="manifest.json" />
 <link rel="icon" type="image/svg+xml" href="icon.svg" />
-<link rel="apple-touch-icon" href="icon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="167x167" href="apple-touch-icon-167.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120.png" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <meta name="apple-mobile-web-app-title" content="Lumina" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="application-name" content="Lumina" />
@@ -20,48 +25,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0F0A1A;
-    --surface: #1A1030;
-    --card: #221540;
-    --card-hover: #2D1B55;
-    --primary: #7C5CBF;
-    --primary-light: #9B7DD4;
-    --primary-pale: #C4A8E8;
-    --gold: #E8C4A0;
-    --gold-light: #F5DFC0;
-    --teal: #5DCAA5;
-    --text: #EDE8F5;
-    --text-secondary: #A89BC2;
-    --text-muted: #6B5F85;
-    --border: rgba(124, 92, 191, 0.2);
-    --border-hover: rgba(124, 92, 191, 0.5);
-    --danger: #E8578A;
-    --success: #5DCAA5;
-    --shadow-card: 0 4px 24px rgba(124, 92, 191, 0.12);
-    --shadow-btn: 0 4px 16px rgba(124, 92, 191, 0.35);
-    --gold-glow: 0 0 20px rgba(232, 196, 160, 0.15);
-    --active-glow: 0 0 0 2px rgba(124, 92, 191, 0.4);
-    --mood-1: #4A3860;
-    --mood-2: #5A4070;
-    --mood-3: #6B5490;
-    --mood-4: #7C5CBF;
-    --mood-5: #9B7DD4;
-    --mood-6: #C4A8E8;
-    --mood-7: #E8C4A0;
-    --cat-shadow: #7C5CBF;
-    --cat-ic: #C4A8E8;
-    --cat-sl: #E8C4A0;
-    --cat-ep: #5DCAA5;
-    --cat-rl: #9B7DD4;
-    --cat-rp: #E8578A;
-    --fs-body: 15px;
-    --star-color: #ffffff;
-    --nav-bg: rgba(26, 16, 48, 0.92);
-    --overlay-bg: rgba(15, 10, 26, 0.95);
-    --celebration-bg: rgba(15, 10, 26, 0.97);
-  }
-
-  body.theme-light {
     --bg: #F8F4FB;
     --surface: #FFFFFF;
     --card: #FFFFFF;
@@ -83,23 +46,25 @@
     --shadow-btn: 0 4px 16px rgba(124, 92, 191, 0.25);
     --gold-glow: 0 0 20px rgba(184, 137, 93, 0.18);
     --active-glow: 0 0 0 2px rgba(124, 92, 191, 0.3);
+    --mood-1: #4A3860;
+    --mood-2: #5A4070;
+    --mood-3: #6B5490;
+    --mood-4: #7C5CBF;
+    --mood-5: #9B7DD4;
+    --mood-6: #C4A8E8;
+    --mood-7: #B8895D;
+    --cat-shadow: #7C5CBF;
+    --cat-ic: #C4A8E8;
+    --cat-sl: #B8895D;
+    --cat-ep: #3F9F7E;
+    --cat-rl: #9B7DD4;
+    --cat-rp: #D14573;
+    --fs-body: 15px;
     --star-color: #C4A8E8;
     --nav-bg: rgba(255, 255, 255, 0.92);
     --overlay-bg: rgba(248, 244, 251, 0.96);
     --celebration-bg: rgba(248, 244, 251, 0.97);
   }
-  body.theme-light .star { opacity: 0.18 !important; }
-  body.theme-light .wordmark { text-shadow: 0 1px 2px rgba(184, 137, 93, 0.15); }
-  body.theme-light .pill-shadow { background: rgba(124, 92, 191, 0.12); }
-  body.theme-light .pill-ic { background: rgba(196, 168, 232, 0.18); color: #6B4FA0; }
-  body.theme-light .pill-sl { background: rgba(184, 137, 93, 0.15); color: #8B6543; }
-  body.theme-light .pill-ep { background: rgba(63, 159, 126, 0.15); color: #2D7A5E; }
-  body.theme-light .pill-rl { background: rgba(155, 125, 212, 0.15); color: #6B4FA8; }
-  body.theme-light .pill-rp { background: rgba(209, 69, 115, 0.12); color: var(--danger); }
-  body.theme-light .btn-gold { color: #FFFFFF; background: linear-gradient(135deg, #B8895D, #D4A878); }
-  body.theme-light .affirmation-card { background: linear-gradient(135deg, rgba(124, 92, 191, 0.06), rgba(184, 137, 93, 0.04)); }
-  body.theme-light .affirmation-text { color: #8B6543; }
-  body.theme-light .candle-day { color: #8B6543; }
 
   *,*::before,*::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -248,7 +213,7 @@
   }
   .candle-day {
     margin-top: 4px;
-    color: var(--gold);
+    color: #8B6543;
     font-size: 12px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -313,12 +278,12 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
-  .pill-shadow { background: rgba(124, 92, 191, 0.2); color: var(--primary-light); border: 1px solid rgba(124, 92, 191, 0.3); }
-  .pill-ic { background: rgba(196, 168, 232, 0.15); color: var(--primary-pale); border: 1px solid rgba(196, 168, 232, 0.3); }
-  .pill-sl { background: rgba(232, 196, 160, 0.15); color: var(--gold); border: 1px solid rgba(232, 196, 160, 0.3); }
-  .pill-ep { background: rgba(93, 202, 165, 0.15); color: var(--teal); border: 1px solid rgba(93, 202, 165, 0.3); }
-  .pill-rl { background: rgba(155, 125, 212, 0.15); color: var(--primary-light); border: 1px solid rgba(155, 125, 212, 0.3); }
-  .pill-rp { background: rgba(232, 87, 138, 0.12); color: var(--danger); border: 1px solid rgba(232, 87, 138, 0.3); }
+  .pill-shadow { background: rgba(124, 92, 191, 0.12); color: var(--primary-light); border: 1px solid rgba(124, 92, 191, 0.25); }
+  .pill-ic { background: rgba(196, 168, 232, 0.18); color: #6B4FA0; border: 1px solid rgba(196, 168, 232, 0.35); }
+  .pill-sl { background: rgba(184, 137, 93, 0.15); color: #8B6543; border: 1px solid rgba(184, 137, 93, 0.3); }
+  .pill-ep { background: rgba(63, 159, 126, 0.15); color: #2D7A5E; border: 1px solid rgba(63, 159, 126, 0.3); }
+  .pill-rl { background: rgba(155, 125, 212, 0.15); color: #6B4FA8; border: 1px solid rgba(155, 125, 212, 0.3); }
+  .pill-rp { background: rgba(209, 69, 115, 0.12); color: var(--danger); border: 1px solid rgba(209, 69, 115, 0.3); }
 
   /* Buttons */
   .btn {
@@ -342,8 +307,8 @@
   .btn-full { width: 100%; }
   .btn-gold {
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    color: #3a2818;
-    box-shadow: 0 4px 16px rgba(232, 196, 160, 0.4);
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(184, 137, 93, 0.3);
   }
   .btn-gold:hover { background: linear-gradient(135deg, var(--gold-light), var(--gold)); }
   .btn-ghost {
@@ -495,8 +460,8 @@
 
   /* Affirmation card */
   .affirmation-card {
-    background: linear-gradient(135deg, rgba(124, 92, 191, 0.12), rgba(232, 196, 160, 0.05));
-    border: 1px solid rgba(232, 196, 160, 0.25);
+    background: linear-gradient(135deg, rgba(124, 92, 191, 0.06), rgba(184, 137, 93, 0.05));
+    border: 1px solid rgba(184, 137, 93, 0.25);
     border-radius: 20px;
     padding: 22px;
     margin-top: 18px;
@@ -508,7 +473,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 18px;
-    color: var(--gold-light);
+    color: #8B6543;
     line-height: 1.4;
   }
 
@@ -1136,45 +1101,6 @@
     transition: all 200ms;
   }
   .color-swatch.selected { border-color: var(--gold); transform: scale(1.1); }
-
-  /* Theme toggle */
-  .theme-toggle { cursor: pointer; }
-  .theme-track {
-    width: 58px;
-    height: 30px;
-    background: linear-gradient(135deg, #1A1030, #2D1B55);
-    border: 1px solid var(--border);
-    border-radius: 50px;
-    position: relative;
-    transition: background 300ms ease, border-color 300ms ease;
-  }
-  body.theme-light .theme-track {
-    background: linear-gradient(135deg, #F5DFC0, #E8C4A0);
-  }
-  .theme-thumb {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 24px;
-    height: 24px;
-    background: var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3a2818;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    transition: left 300ms cubic-bezier(0.34, 1.56, 0.64, 1), background 300ms ease;
-  }
-  body.theme-light .theme-thumb {
-    left: 32px;
-    background: #FFFFFF;
-    color: #B8895D;
-  }
-  .theme-icon { position: absolute; transition: opacity 200ms ease, transform 300ms ease; }
-  .icon-sun { opacity: 0; transform: rotate(-90deg); }
-  body.theme-light .icon-moon { opacity: 0; transform: rotate(90deg); }
-  body.theme-light .icon-sun { opacity: 1; transform: rotate(0); }
 
   /* Toast */
   .toast {
@@ -1808,20 +1734,6 @@
           <div class="color-swatch" data-c="#E8578A" style="background:#E8578A;"></div>
         </div>
       </div>
-      <div class="setting-row">
-        <div>
-          <div class="setting-label">Theme</div>
-          <div class="setting-sub">Switch between dark and light</div>
-        </div>
-        <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">
-          <div class="theme-track">
-            <div class="theme-thumb">
-              <svg class="theme-icon icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-              <svg class="theme-icon icon-sun" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="card mt-2">
@@ -2122,7 +2034,7 @@ function defaultState(){
       {id:'a_default', text:'I am worthy of love and healing.', isPinned:true, createdDate: today()}
     ],
     settings: {
-      theme: 'dark',
+      theme: 'light',
       dailyReminderTime: null,
       breathingDuration: 4,
       currentPromptIndex: 0,
@@ -3106,15 +3018,7 @@ function updateBreath(v){ state.settings.breathingDuration = parseInt(v); saveSt
 
 function applyBodyClasses(){
   const fs = state.settings.fontSize || 'medium';
-  const theme = state.settings.theme || 'dark';
-  document.body.className = 'font-' + fs + ' theme-' + theme;
-}
-
-function toggleTheme(){
-  state.settings.theme = (state.settings.theme === 'light') ? 'dark' : 'light';
-  applyBodyClasses();
-  saveState();
-  showToast(state.settings.theme === 'light' ? 'Light mode ✦' : 'Dark mode ☾');
+  document.body.className = 'font-' + fs;
 }
 
 function exportData(){
