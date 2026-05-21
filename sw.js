@@ -1,10 +1,15 @@
-const CACHE = 'lumina-v1';
+const CACHE = 'lumina-v4';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './icon.svg',
-  './icon-maskable.svg',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
+  './icons/icon-maskable-192.png',
+  './icons/icon-maskable-512.png',
+  './icons/apple-touch-icon.png',
+  './icons/favicon.ico',
   'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap'
 ];
 

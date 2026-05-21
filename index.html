@@ -67,7 +67,7 @@
   }
 
   *,*::before,*::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; width: 100%; max-width: 100%; overflow-x: hidden; }
   body {
     background: var(--bg);
     color: var(--text);
@@ -130,7 +130,8 @@
     max-width: 430px;
     margin: 0 auto;
     min-height: 100vh;
-    padding-bottom: 90px;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+    overflow-x: clip;
   }
 
   .screen {
@@ -224,6 +225,27 @@
     position: absolute; top: 6px; right: 12px;
     color: var(--text-muted); font-size: 20px; line-height: 1;
   }
+
+  /* Install diagnostics */
+  .install-status {
+    margin-top: 14px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .install-check {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; color: var(--text-secondary);
+  }
+  .install-check .dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10px; flex-shrink: 0; color: #fff;
+  }
+  .install-check .dot.ok { background: var(--success); }
+  .install-check .dot.no { background: var(--danger); }
 
   /* Candle */
   .candle-wrap {
@@ -514,7 +536,7 @@
   .bottom-nav {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    height: 64px;
+    height: calc(64px + env(safe-area-inset-bottom, 0px));
     padding-bottom: env(safe-area-inset-bottom, 0px);
     background: var(--nav-bg);
     backdrop-filter: blur(16px);
@@ -1812,6 +1834,7 @@
       <h3 style="margin-bottom:8px;">Install Lumina</h3>
       <p class="small text-muted mb-1" id="install-text" style="line-height:1.6;">Keep Lumina close. Install it to your device for a quiet, app-like experience that works offline.</p>
       <button class="btn btn-gold btn-full mt-2" id="install-btn" onclick="installApp()">Install Lumina ✦</button>
+      <div id="install-status" class="install-status"></div>
     </div>
 
     <div class="card mt-2">
@@ -3039,8 +3062,6 @@ function heartBurst(el){
 function renderSettings(){
   document.getElementById('set-name').value = state.profile.name || '';
   document.getElementById('set-start-date').value = state.profile.journeyStartDate;
-  document.getElementById('set-font').value = state.settings.fontSize;
-  document.getElementById('set-reminder').value = state.settings.dailyReminderTime || '';
   document.getElementById('set-breath').value = state.settings.breathingDuration;
   document.querySelectorAll('#color-picker .color-swatch').forEach(s => {
     s.classList.toggle('selected', s.dataset.c === state.profile.avatarColor);
@@ -3322,6 +3343,7 @@ function dismissInstallBanner(){
 function refreshInstallUI(){
   updateInstallCard();
   updateInstallBanner();
+  renderInstallStatus();
 }
 
 function updateInstallBanner(){
@@ -3388,11 +3410,42 @@ function installApp(){
   }
 }
 
+async function renderInstallStatus(){
+  const box = document.getElementById('install-status');
+  if(!box) return;
+  const secure = window.isSecureContext;
+  const swSupported = 'serviceWorker' in navigator;
+  let swActive = false;
+  try { swActive = !!(swSupported && await navigator.serviceWorker.getRegistration()); } catch(e){}
+  let iconsOk = false;
+  try {
+    const r = await fetch('icons/icon-192.png', {method:'HEAD'});
+    iconsOk = r.ok && (r.headers.get('content-type')||'').includes('image');
+  } catch(e){ iconsOk = false; }
+  const promptReady = !!deferredInstall;
+
+  const row = (ok, label, hint) =>
+    `<div class="install-check"><span class="dot ${ok?'ok':'no'}">${ok?'✓':'✗'}</span>
+     <span>${label}${(!ok && hint)?' — <em>'+hint+'</em>':''}</span></div>`;
+
+  let rows = '';
+  rows += row(secure, 'Secure connection (https)', 'install needs https or localhost');
+  rows += row(swActive, 'Service worker active', 'reload once on https');
+  rows += row(iconsOk, 'App icons reachable', 'icons/ folder must be uploaded');
+  if(isiOS()){
+    rows += `<div class="install-check"><span class="dot ok">i</span><span>On iOS, install via Share → Add to Home Screen</span></div>`;
+  } else {
+    rows += row(promptReady, 'Browser ready to install', 'interact with the page, then check the address-bar install icon');
+  }
+  box.innerHTML = rows;
+}
+
 // Patch renders to refresh install UI
 const _renderSettings = renderSettings;
 renderSettings = function(){
   _renderSettings();
   updateInstallCard();
+  renderInstallStatus();
 };
 const _renderHome = renderHome;
 renderHome = function(){
